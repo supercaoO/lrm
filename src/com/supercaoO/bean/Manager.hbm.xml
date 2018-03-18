@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	
+	<class name="com.supercaoO.bean.Manager" table="t_manager">
+		<id name="managerId" column="managerId">
+			<generator class="native"/>
+		</id>
+		
+		<property name="managerName" column="managerName"/>
+		<property name="managerPassword" column="managerPassword"/>
+		
+		<set name="projects" inverse="true">
+			<key column="project_managerId"/>
+			<one-to-many class="com.supercaoO.bean.Project"/>
+		</set>
+	</class>
+	
+</hibernate-mapping>    

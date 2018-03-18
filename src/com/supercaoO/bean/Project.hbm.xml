@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	
+	<class name="com.supercaoO.bean.Project" table="t_project">
+		<id name="projectId" column="projectId">
+			<generator class="native"/>
+		</id>
+		
+		<property name="projectName" column="projectName"/>
+		
+		<many-to-one name="manager" class="com.supercaoO.bean.Manager" column="project_managerId" cascade="save-update"/>
+	</class>
+	
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+
