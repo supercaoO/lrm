@@ -10,8 +10,14 @@
 		</id>
 		
 		<property name="projectName" column="projectName"/>
+		<property name="projectIntro" column="projectIntro"/>
+		<property name="projectStatus" column="projectStatus"/>
 		
-		<many-to-one name="manager" class="com.supercaoO.bean.Manager" column="project_managerId" cascade="save-update"/>
+		<many-to-one name="manager" class="com.supercaoO.bean.Manager" column="project_managerId"/>
+		<set name="students" table="t_project_student" cascade="save-update" inverse="true">
+			<key column="projectId"/>
+			<many-to-many class="com.supercaoO.bean.Student" column="studentId"/>
+		</set>	
 	</class>
 	
 </hibernate-mapping>

@@ -7,6 +7,7 @@ public class Manager {
 	private Integer managerId;
 	private String managerName;
 	private String managerPassword;
+	private String managerStatus;
 	private Set<Project> projects = new HashSet<Project>();
 	
 	public Integer getManagerId() {
@@ -26,6 +27,12 @@ public class Manager {
 	}
 	public void setManagerPassword(String managerPassword) {
 		this.managerPassword = managerPassword;
+	}
+	public String getManagerStatus() {
+		return managerStatus;
+	}
+	public void setManagerStatus(String managerStatus) {
+		this.managerStatus = managerStatus;
 	}
 	public Set<Project> getProjects() {
 		return projects;

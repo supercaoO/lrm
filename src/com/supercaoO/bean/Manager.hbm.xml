@@ -12,6 +12,7 @@
 		
 		<property name="managerName" column="managerName"/>
 		<property name="managerPassword" column="managerPassword"/>
+		<property name="managerStatus" column="managerStatus"></property>
 		
 		<set name="projects" inverse="true">
 			<key column="project_managerId"/>

@@ -15,11 +15,32 @@ public class ManagerServiceImpl implements ManagerService {
 		this.managerDao = managerDao;
 	}
 	
-	public List<Manager> login(DetachedCriteria criteria) {
+	public Manager login(DetachedCriteria criteria) {
 		return managerDao.getManagerByIdAndPwd(criteria);
 	}
-	
-	
+
+	public List<Manager> query() {
+		return managerDao.query();
+	}
+
+	public Manager getManagerById(String managerId) {
+		return managerDao.getManagerById(managerId);
+	}
+
+	public Integer save(Manager manager) {
+		return managerDao.save(manager);
+	}
+
+	public int reqwd(DetachedCriteria criteria, String newManagerPassword) {
+		Manager manager = managerDao.getManagerByIdAndPwd(criteria);
+		if (manager == null) {
+			return -1;
+		} else {
+			manager.setManagerPassword(newManagerPassword);
+			return 1;
+		}
+	}
+
 	
 
 }

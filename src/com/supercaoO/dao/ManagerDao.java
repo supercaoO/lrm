@@ -8,6 +8,12 @@ import com.supercaoO.bean.Manager;
 
 public interface ManagerDao {
 
-	List<Manager> getManagerByIdAndPwd(DetachedCriteria criteria);
+	Manager getManagerByIdAndPwd(DetachedCriteria criteria);
+
+	List<Manager> query();
+
+	Manager getManagerById(String managerId);
+
+	Integer save(Manager manager);
 
 }

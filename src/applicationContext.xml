@@ -40,6 +40,7 @@
 			<list>
 				<value>com/supercaoO/bean/Manager.hbm.xml</value>
 				<value>com/supercaoO/bean/Project.hbm.xml</value>
+				<value>com/supercaoO/bean/Student.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -62,6 +63,34 @@
 	</bean>
 	
 	<bean id="managerDao" class="com.supercaoO.dao.ManagerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 配置项目模块 -->
+	<bean id="projectAction" class="com.supercaoO.web.ProjectAction" scope="prototype">
+		<property name="projectService" ref="projectService"/>
+	</bean>
+	
+	<bean id="projectService" class="com.supercaoO.service.ProjectServiceImpl">
+		<property name="projectDao" ref="projectDao"/>
+		<property name="managerService" ref="managerService"/>
+	</bean>
+	
+	<bean id="projectDao" class="com.supercaoO.dao.ProjectDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 配置成员模块 -->
+	<bean id="studentAction" class="com.supercaoO.web.StudentAction" scope="prototype">
+		<property name="studentService" ref="studentService"/>
+	</bean>
+	
+	<bean id="studentService" class="com.supercaoO.service.StudentServiceImpl">
+		<property name="studentDao" ref="studentDao"/>
+		<property name="projectService" ref="projectService"/>
+	</bean>
+	
+	<bean id="studentDao" class="com.supercaoO.dao.StudentDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 		

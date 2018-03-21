@@ -9,9 +9,25 @@ import com.supercaoO.bean.Manager;
 
 public class ManagerDaoImpl extends HibernateDaoSupport implements ManagerDao {
 
-	public List<Manager> getManagerByIdAndPwd(DetachedCriteria criteria) {
+	public Manager getManagerByIdAndPwd(DetachedCriteria criteria) {
 		List<Manager> list = (List<Manager>) this.getHibernateTemplate().findByCriteria(criteria);
-		return list;
+		if(list != null && list.size() == 1 )
+			return list.get(0);
+		return null;
+	}
+
+	public List<Manager> query() {
+		List<Manager> managerList = (List<Manager>) this.getHibernateTemplate().find("from Manager where managerStatus = ?", "1");
+		return managerList;
+	}
+
+	public Manager getManagerById(String managerId) {
+		return this.getHibernateTemplate().get(Manager.class, Integer.valueOf(managerId));
+	}
+
+	public Integer save(Manager manager) {
+		this.getHibernateTemplate().save(manager);
+		return manager.getManagerId();
 	}
 
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	
+	<class name="com.supercaoO.bean.Student" table="t_student">
+		<id name="studentId" column="studentId">
+		</id>
+		
+		<property name="studentName" column="studentName"/>
+		<property name="studentPassword" column="studentPassword"/>
+		<property name="studentStatus" column="studentStatus"/>
+		
+		<set name="projects" table="t_project_student" cascade="save-update">
+			<key column="studentId"/>
+			<many-to-many class="com.supercaoO.bean.Project" column="projectId"/>
+		</set>		
+	</class>
+	
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+
