@@ -10,7 +10,7 @@ public interface ManagerDao {
 
 	Manager getManagerByIdAndPwd(DetachedCriteria criteria);
 
-	List<Manager> query();
+	List<Manager> query(DetachedCriteria criteria);
 
 	Manager getManagerById(String managerId);
 

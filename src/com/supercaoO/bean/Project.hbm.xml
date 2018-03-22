@@ -12,6 +12,7 @@
 		<property name="projectName" column="projectName"/>
 		<property name="projectIntro" column="projectIntro"/>
 		<property name="projectStatus" column="projectStatus"/>
+		<property name="lastCommitDate" column="lastCommitDate"></property>
 		
 		<many-to-one name="manager" class="com.supercaoO.bean.Manager" column="project_managerId"/>
 		<set name="students" table="t_project_student" cascade="save-update" inverse="true">

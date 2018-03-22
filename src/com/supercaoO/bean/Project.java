@@ -8,6 +8,7 @@ public class Project {
 	private String projectName;
 	private String projectIntro;
 	private String projectStatus;
+	private String lastCommitDate;
 	private Manager manager;
 	private Set<Student> students = new HashSet<Student>();
 	
@@ -47,6 +48,11 @@ public class Project {
 	public void setStudents(Set<Student> students) {
 		this.students = students;
 	}
-	
+	public String getLastCommitDate() {
+		return lastCommitDate;
+	}
+	public void setLastCommitDate(String lastCommitDate) {
+		this.lastCommitDate = lastCommitDate;
+	}
 	
 }

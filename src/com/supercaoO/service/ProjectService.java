@@ -2,14 +2,18 @@ package com.supercaoO.service;
 
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
+
 import com.supercaoO.bean.Project;
 
 public interface ProjectService {
 
 	void save(Project project, String managerId);
 
-	List<Project> query();
+	List<Project> query(DetachedCriteria criteria);
 
 	Project getProjectById(String projectId);
+
+	void update(Project project, DetachedCriteria criteria, String managerId);
 
 }

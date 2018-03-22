@@ -7,9 +7,11 @@
 	<package name="lrm" extends="struts-default" namespace="/">
 		<action name="manager_*" class="managerAction" method="{1}">
 			<result name="success" type="redirect">/manager-index.jsp</result>
-			<result name="login" type="redirect">/manager-login.jsp</result>
-			<result name="queryDone">/project-save.jsp</result>
+			<result name="login">/login.html</result>
+			<result name="managerlogin" type="redirect">/manager-login.jsp</result>
+			<result name="queryDone">/project-update.jsp</result>
 			<result name="saveSuccess">/manager-save-success.jsp</result>
+			<result name="listDone">/manager-list.jsp</result>
 			<result name="repwd">/manager-repwd.jsp</result>
 			<result name="repwdSuccess">/manager-login.jsp</result>
 		</action>
@@ -17,12 +19,15 @@
 		<action name="project_*" class="projectAction" method="{1}">
 			<result name="saveSuccess" type="redirect">/project-save-success.jsp</result>
 			<result name="queryDone">/student-save.jsp</result>
+			<result name="listDone">/project-list.jsp</result>
+			<result name="queryStudentsByProjectDone">/student-list.jsp</result>
 		</action>
 		
 		<action name="student_*" class="studentAction" method="{1}">
 			<result name="saveSuccess" type="redirect">/student-save-success.jsp</result>
 			<result name="success" type="redirect">/student-index.jsp</result>
 			<result name="login" type="redirect">/student-login.jsp</result>
+			<result name="listDone">/student-list.jsp</result>
 			<result name="repwd">/student-repwd.jsp</result>
 			<result name="repwdSuccess">/student-login.jsp</result>
 		</action>

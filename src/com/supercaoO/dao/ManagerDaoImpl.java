@@ -16,8 +16,8 @@ public class ManagerDaoImpl extends HibernateDaoSupport implements ManagerDao {
 		return null;
 	}
 
-	public List<Manager> query() {
-		List<Manager> managerList = (List<Manager>) this.getHibernateTemplate().find("from Manager where managerStatus = ?", "1");
+	public List<Manager> query(DetachedCriteria criteria) {
+		List<Manager> managerList = (List<Manager>) this.getHibernateTemplate().findByCriteria(criteria);
 		return managerList;
 	}
 

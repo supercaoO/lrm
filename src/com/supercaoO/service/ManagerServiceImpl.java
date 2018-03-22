@@ -19,8 +19,8 @@ public class ManagerServiceImpl implements ManagerService {
 		return managerDao.getManagerByIdAndPwd(criteria);
 	}
 
-	public List<Manager> query() {
-		return managerDao.query();
+	public List<Manager> query(DetachedCriteria criteria) {
+		return managerDao.query(criteria);
 	}
 
 	public Manager getManagerById(String managerId) {

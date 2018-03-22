@@ -23,4 +23,9 @@ public class StudentDaoImpl extends HibernateDaoSupport implements StudentDao {
 		return null;
 	}
 
+	public List<Student> query() {
+		List<Student> studentList = (List<Student>) this.getHibernateTemplate().find("from Student where studentStatus = ?", "1");
+		return studentList;
+	}
+
 }

@@ -1,5 +1,7 @@
 package com.supercaoO.web;
 
+import java.util.List;
+
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
@@ -7,6 +9,7 @@ import org.hibernate.criterion.Restrictions;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.util.ValueStack;
 import com.supercaoO.bean.Student;
 import com.supercaoO.service.StudentService;
 
@@ -47,12 +50,17 @@ public class StudentAction extends ActionSupport implements ModelDriven<Student>
 		}
 	}
 	
-	/*public String query() {
-		List<Manager> managerList = managerService.query();
+	public String query() {
+		List<Student> studentList = studentService.query();
 		ValueStack valueStack = ActionContext.getContext().getValueStack();
-		valueStack.set("managerList", managerList);
+		valueStack.set("studentList", studentList);
 		return "queryDone";
-	}*/
+	}
+	
+	public String list() {
+		query();
+		return "listDone";
+	}
 	
 	public String repwd() {
 		String newStudentPassword = ServletActionContext.getRequest().getParameter("newStudentPassword");

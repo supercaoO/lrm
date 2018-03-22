@@ -208,11 +208,6 @@
              </a>
 
 
-                                        <a href="form-news-list.html">
-                                            <i class="am-icon-angle-right"></i>
-                                            <span>文字列表</span>
-
-                                        </a>
                             </li>
                         </ul>
                     </li>
@@ -260,15 +255,39 @@
 
 
         <div class="tpl-content-wrapper">
+             <% String projectName = request.getParameter("projectName");
+                String operation = "新增";
+                String newStr = "";
+                String thisManagerId = request.getParameter("thisManagerId");
+                String thisManagerName = "";
+                String display = "";
+                String path = "添加";
+                String action = "save";
+                if(thisManagerId != null){
+             	   thisManagerName = new String(request.getParameter("thisManagerName").getBytes("iso-8859-1"), "utf-8");
+             	   projectName = new String(projectName.getBytes("iso-8859-1"), "utf-8");
+             	   operation = "更新";
+             	   newStr = "新";
+             	   path = "查询";
+             	   action = "update";
+                }
+                else{
+             	   projectName = "";
+             	   thisManagerId = "";
+             	   display = "none";
+                }
+             %>
             <ol class="am-breadcrumb">
-                <li><a href="#" class="am-icon-home">首页</a></li>
-                <li><a href="#">添加</a></li>
-                <li class="am-active">项目</li>
+                <li><a href="manager-index.jsp" class="am-icon-home">首页</a></li>
+                <li><a href="#"><%= path %></a></li>
+                <li><a href="#">项目</a></li>
+                <li><a href="#"><%= projectName %></a>
             </ol>
             <div class="tpl-portlet-components">
                 <div class="portlet-title">
                     <div class="caption font-green bold">
-                        <span class="am-icon-code"></span> 添加项目
+                        <span class="am-icon-code"></span> <%= operation %>项目
+                        
                     </div>
                     <div class="tpl-portlet-input tpl-fz-ml">
                         <div class="portlet-input input-small input-inline">
@@ -286,36 +305,36 @@
 
 
                         <div class="am-u-sm-12 am-u-md-9">
-                            <form class="am-form am-form-horizontal" action="${ pageContext.request.contextPath }/student_save.action" method="post">
+                            <form class="am-form am-form-horizontal" action="${ pageContext.request.contextPath }/project_<%= action %>.action" method="post">
                                 <div class="am-form-group">
-                                    <label for="user-name" class="am-u-sm-3 am-form-label">成员学号 / StudentId</label>
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">项目名 / ProjectName</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" name="studentId" placeholder="请输入成员学号 / StudentId">
-                                    </div>
-                                </div>
-                                
-                                <div class="am-form-group">
-                                    <label for="user-name" class="am-u-sm-3 am-form-label">成员姓名 / StudentName</label>
-                                    <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" name="studentName" placeholder="请输入成员姓名 / StudentName">
+                                        <input type="text" id="user-name" name="projectName" placeholder="请输入<%= newStr %>项目名 / ProjectName">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="user-email" class="am-u-sm-3 am-form-label">所属项目 / Project</label>
+                                    <label for="user-email" class="am-u-sm-3 am-form-label">所属管理员 / Manager</label>
                                     <div class="am-u-sm-9">
-                                    	<select <%-- data-am-selected="{btnSize: 'sm'}" --%> name="projectId">
-							              <s:iterator value="projectList">
-							              	<option value="${ projectId }"><s:property value="projectName"/></option>
+                                    	<select <%-- data-am-selected="{btnSize: 'sm'}" --%> name="managerId">
+                                    	  <option value="<%= thisManagerId %>" style="display: <%= display %>"><%= thisManagerName %></option>
+							              <s:iterator value="managerList">
+							              	<option value="${ managerId }"><s:property value="managerName"/></option>
 							              </s:iterator>
 							            </select>                                    
                                     </div>
                                 </div>
 
+                                <div class="am-form-group">
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">项目简介 / Intro</label>
+                                    <div class="am-u-sm-9">
+                                        <textarea class="" rows="5" id="user-intro" name="projectIntro" placeholder="请输入<%= newStr %>项目简介"></textarea>
+                                    </div>
+                                </div>
 
                                 <div class="am-form-group">
                                     <div class="am-u-sm-9 am-u-sm-push-3">
-                                        <button type="submit" class="am-btn am-btn-primary">确认添加</button>
+                                        <button type="submit" name="oldProjectName" value="<%= projectName %>" class="am-btn am-btn-primary">确认<%= operation %></button>
                                     </div>
                                 </div>
                             </form>

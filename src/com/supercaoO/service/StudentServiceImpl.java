@@ -1,5 +1,7 @@
 package com.supercaoO.service;
 
+import java.util.List;
+
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,6 +41,10 @@ public class StudentServiceImpl implements StudentService {
 			student.setStudentPassword(newStudentPassword);
 			return 1;
 		}
+	}
+
+	public List<Student> query() {
+		return studentDao.query();
 	}
 	
 

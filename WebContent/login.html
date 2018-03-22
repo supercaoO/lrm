@@ -35,12 +35,12 @@
 		<div class="am-u-sm-10 login-am-center">
 			<form class="am-form" action="student-login.jsp">
 				<fieldset>
-					<button type="submit" class="am-btn am-btn-default">成员登录</button>
+					<button type="submit" name="identity" value="成员" class="am-btn am-btn-default">成员登录</button>
 				</fieldset>
 			</form>
-			<form class="am-form" action="manager-login.jsp">
+			<form class="am-form" action="user-login.jsp" method="post">
 				<fieldset>
-					<button type="submit" class="am-btn am-btn-default">管理员登录</button>
+					<button type="submit" name="identity" value="管理员" class="am-btn am-btn-default">管理员登录</button>
 				</fieldset>
 			</form>
 		</div>

@@ -2,6 +2,7 @@ package com.supercaoO.service;
 
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.supercaoO.bean.Manager;
@@ -26,13 +27,19 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 
-	public List<Project> query() {
-		return projectDao.query();
+	public List<Project> query(DetachedCriteria criteria) {
+		return projectDao.query(criteria);
 	}
 
 
 	public Project getProjectById(String projectId) {
 		return projectDao.getManagerById(projectId);
+	}
+
+	public void update(Project project, DetachedCriteria criteria, String managerId) {
+		Project p = projectDao.update(project, criteria, managerId);
+		Manager manager = managerService.getManagerById(managerId);
+		p.setManager(manager);
 	}
 
 }

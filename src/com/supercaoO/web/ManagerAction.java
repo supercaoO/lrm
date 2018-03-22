@@ -1,5 +1,6 @@
 package com.supercaoO.web;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
@@ -36,13 +37,34 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 			ServletActionContext.getRequest().getSession().setAttribute("manager", manager);
 			return SUCCESS;
 		} else {
-			return LOGIN;
+			return "managerLogin";
 		}
 	}
 	
+	public String logout() {
+		ServletActionContext.getRequest().getSession().removeAttribute("manager");
+		return LOGIN;
+		
+	}
+	
 	public String query() {
-		List<Manager> managerList = managerService.query();
+		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class).add(Restrictions.eq("managerStatus", "1"));
+		List<Manager> managerList = managerService.query(criteria);
 		ValueStack valueStack = ActionContext.getContext().getValueStack();
+		String thisManagerId = ServletActionContext.getRequest().getParameter("thisManagerId");
+		if(thisManagerId != null) {
+			try {
+				thisManagerId = new String(thisManagerId.getBytes("iso-8859-1"), "utf-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			for (int index = 0; index < managerList.size(); index++) {
+				if(managerList.get(index).getManagerId().toString().equals(thisManagerId)) {
+					managerList.remove(index);
+					break;
+				}
+			}
+		}
 		valueStack.set("managerList", managerList);
 		return "queryDone";
 	}
@@ -53,6 +75,11 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 		Integer managerId = managerService.save(manager);
 		ActionContext.getContext().getValueStack().push(managerId.toString());
 		return "saveSuccess";
+	}
+	
+	public String list() {
+		query();
+		return "listDone";
 	}
 	
 	public String repwd() {

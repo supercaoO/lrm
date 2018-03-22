@@ -27,11 +27,11 @@
 
     <header class="am-topbar am-topbar-inverse admin-header">
         <div class="am-topbar-brand">
-            <a href="javascript:;" class="tpl-logo">
-                <img src="assets/img/logo.png" alt="">
+            <a href="https://www.jnu.edu.cn/" class="tpl-logo">
+                <img src="assets/img/logo.jpg" alt="" style="margin-top: 15px">
             </a>
         </div>
-        <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+        <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right" style="margin-top: 27px">
 
         </div>
 
@@ -68,7 +68,7 @@
                         <li>
                             <a href="#" class="tpl-dropdown-content-message">
                                 <span class="tpl-dropdown-content-photo">
-                      <img src="assets/img/user02.png" alt=""> </span>
+                      <img src="assets/img/userImg.png" alt=""> </span>
                                 <span class="tpl-dropdown-content-subject">
                       <span class="tpl-dropdown-content-from"> ${ manager.managerName } </span>
                                 <span class="tpl-dropdown-content-time">10分钟前 </span>
@@ -135,15 +135,15 @@
 
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                     <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                        <span class="tpl-header-list-user-nick">${ manager.managerName }</span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+                        <span class="tpl-header-list-user-nick">${ manager.managerName }</span><span class="tpl-header-list-user-ico"> <img src="assets/img/userImg.png" style="margin: 15px"></span>
                     </a>
                     <ul class="am-dropdown-content">
                         <li><a href="#"><span class="am-icon-bell-o"></span> 资料</a></li>
                         <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
-                        <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+                        <li><a href="${ pageContext.request.contextPath }/manager_logout.action"><span class="am-icon-power-off"></span> 退出</a></li>
                     </ul>
                 </li>
-                <li><a href="###" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+                <li><a href="${ pageContext.request.contextPath }/manager_logout.action" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size" style="margin-top: 27px"></span></a></li>
             </ul>
         </div>
     </header>
@@ -158,9 +158,7 @@
 
 
         <div class="tpl-left-nav tpl-left-nav-hover">
-            <div class="tpl-left-nav-title">
-                Amaze UI 列表
-            </div>
+            <br>
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
@@ -182,37 +180,34 @@
                     <li class="tpl-left-nav-item">
                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-table"></i>
-                            <span>表格</span>
+                            <span>查询</span>
                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                         </a>
                         <ul class="tpl-left-nav-sub-menu">
                             <li>
-                                <a href="table-font-list.html">
+                                <a href="${ pageContext.request.contextPath }/project_list.action">
                                     <i class="am-icon-angle-right"></i>
-                                    <span>文字表格</span>
+                                    <span>项目</span>
                                     <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                                 </a>
 
-                                <a href="table-images-list.html">
+                                <a href="${ pageContext.request.contextPath }/manager_list.action">
                                     <i class="am-icon-angle-right"></i>
-                                    <span>图片表格</span>
+                                    <span>管理员</span>
                                     <i class="tpl-left-nav-content tpl-badge-success">
                18
              </i>
+             </a>
 
-                                    <a href="form-news.html">
+                                    <a href="${ pageContext.request.contextPath }/student_list.action">
                                         <i class="am-icon-angle-right"></i>
-                                        <span>消息列表</span>
+                                        <span>成员</span>
                                         <i class="tpl-left-nav-content tpl-badge-primary">
                5
              </i>
+             </a>
 
 
-                                        <a href="form-news-list.html">
-                                            <i class="am-icon-angle-right"></i>
-                                            <span>文字列表</span>
-
-                                        </a>
                             </li>
                         </ul>
                     </li>
@@ -245,7 +240,7 @@
                     </li>
 
                     <li class="tpl-left-nav-item">
-                        <a href="login.html" class="nav-link tpl-left-nav-link-list">
+                        <a href="manager-repwd.jsp" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-key"></i>
                             <span>修改密码</span>
 
@@ -261,9 +256,9 @@
 
         <div class="tpl-content-wrapper">
             <ol class="am-breadcrumb">
-                <li><a href="#" class="am-icon-home">首页</a></li>
+                <li><a href="manager-index.jsp" class="am-icon-home">首页</a></li>
                 <li><a href="#">添加</a></li>
-                <li class="am-active">项目</li>
+                <li><a href="#">项目</a></li>
             </ol>
             <div class="tpl-portlet-components">
                 <div class="portlet-title">

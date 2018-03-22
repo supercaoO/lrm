@@ -7,7 +7,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>管理端登录</title>
+  <title>
+	<% String identity = request.getParameter("identity"); %><%= identity %>端登录
+	<% String action = (identity.equals("管理员")) ? "manager" : "student"; %>
+  </title>
   <meta name="description" content="这是一个 index 页面">
   <meta name="keywords" content="index">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,10 +36,10 @@
 		</div>
 
 		<div class="am-u-sm-10 login-am-center">
-			<form class="am-form" action="${ pageContext.request.contextPath }/manager_login.action" method="post">
+			<form class="am-form" action="${ pageContext.request.contextPath }/<%= action %>_login.action" method="post">
 				<fieldset>
 					<div class="am-form-group">
-						<input type="text" name="managerId" class="" id="doc-ipt-email-1" placeholder="请输入管理员账号">
+						<input type="text" name="managerId" class="" id="doc-ipt-email-1" placeholder="请输入<%= identity %>账号">
 					</div>
 					<div class="am-form-group">
 						<input type="password" name="managerPassword" class="" id="doc-ipt-pwd-1" placeholder="请输入密码">

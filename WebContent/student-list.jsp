@@ -19,10 +19,9 @@
     <link rel="stylesheet" href="assets/css/amazeui.min.css" />
     <link rel="stylesheet" href="assets/css/admin.css">
     <link rel="stylesheet" href="assets/css/app.css">
-    <script src="assets/js/echarts.min.js"></script>
 </head>
 
-<body data-type="index">
+<body data-type="generalComponents">
 
 
     <header class="am-topbar am-topbar-inverse admin-header">
@@ -199,7 +198,7 @@
              </i>
              </a>
 
-                                    <a href="${ pageContext.request.contextPath }/student_list.action">
+                                    <a href="#">
                                         <i class="am-icon-angle-right"></i>
                                         <span>成员</span>
                                         <i class="tpl-left-nav-content tpl-badge-primary">
@@ -262,13 +261,15 @@
         <div class="tpl-content-wrapper">
             <ol class="am-breadcrumb">
                 <li><a href="#" class="am-icon-home">首页</a></li>
-                <li><a href="#">添加</a></li>
-                <li class="am-active">项目</li>
+                <li><a href="#">查询</a></li>
+                <s:iterator value="path">
+                	<li><a href="#"><s:property value="toString()"/></a></li>
+                </s:iterator>
             </ol>
             <div class="tpl-portlet-components">
                 <div class="portlet-title">
                     <div class="caption font-green bold">
-                        <span class="am-icon-code"></span> 添加项目
+                        <span class="am-icon-code"></span> 成员列表
                     </div>
                     <div class="tpl-portlet-input tpl-fz-ml">
                         <div class="portlet-input input-small input-inline">
@@ -280,49 +281,94 @@
 
 
                 </div>
-                <div class="tpl-block ">
-
-                    <div class="am-g tpl-amazeui-form">
-
-
-                        <div class="am-u-sm-12 am-u-md-9">
-                            <form class="am-form am-form-horizontal" action="${ pageContext.request.contextPath }/student_save.action" method="post">
-                                <div class="am-form-group">
-                                    <label for="user-name" class="am-u-sm-3 am-form-label">成员学号 / StudentId</label>
-                                    <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" name="studentId" placeholder="请输入成员学号 / StudentId">
-                                    </div>
+                <div class="tpl-block">
+                    <div class="am-g">
+                        <div class="am-u-sm-12 am-u-md-6">
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
+                                    <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-save"></span> 保存</button>
+                                    <button type="button" class="am-btn am-btn-default am-btn-warning"><span class="am-icon-archive"></span> 审核</button>
+                                    <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 删除</button>
                                 </div>
-                                
-                                <div class="am-form-group">
-                                    <label for="user-name" class="am-u-sm-3 am-form-label">成员姓名 / StudentName</label>
-                                    <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" name="studentName" placeholder="请输入成员姓名 / StudentName">
-                                    </div>
-                                </div>
-
-                                <div class="am-form-group">
-                                    <label for="user-email" class="am-u-sm-3 am-form-label">所属项目 / Project</label>
-                                    <div class="am-u-sm-9">
-                                    	<select <%-- data-am-selected="{btnSize: 'sm'}" --%> name="projectId">
-							              <s:iterator value="projectList">
-							              	<option value="${ projectId }"><s:property value="projectName"/></option>
-							              </s:iterator>
-							            </select>                                    
-                                    </div>
-                                </div>
-
-
-                                <div class="am-form-group">
-                                    <div class="am-u-sm-9 am-u-sm-push-3">
-                                        <button type="submit" class="am-btn am-btn-primary">确认添加</button>
-                                    </div>
-                                </div>
-                            </form>
+                            </div>
+                        </div>
+                        <div class="am-u-sm-12 am-u-md-3">
+                            <div class="am-form-group">
+                                <select data-am-selected="{btnSize: 'sm'}">
+              <option value="option1">所有类别</option>
+              <option value="option2">default</option>
+              <option value="option3">default</option>
+            </select>
+                            </div>
+                        </div>
+                        <div class="am-u-sm-12 am-u-md-3">
+                            <div class="am-input-group am-input-group-sm">
+                                <input type="text" class="am-form-field">
+                                <span class="am-input-group-btn">
+            <button class="am-btn  am-btn-default am-btn-success tpl-am-btn-success am-icon-search" type="button"></button>
+          </span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="am-g">
+                        <div class="am-u-sm-12">
+                            <form class="am-form">
+                                <table class="am-table am-table-striped am-table-hover table-main">
+                                    <thead>
+                                        <tr>
+                                            <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                                            <th class="table-id">ID</th>
+                                            <th class="table-title">姓名</th>
+                                            <th class="table-type">类别</th>
+                                            <th class="table-author am-hide-sm-only">参与项目个数</th>
+                                            <th class="table-set">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    	<s:iterator value="studentList">
+	                                    	<tr>
+	                                            <td><input type="checkbox"></td>
+	                                            <td><s:property value="studentId"/></td>
+	                                            <td><a href="#"><s:property value="studentName"/></a></td>
+	                                            <td>default</td>
+	                                            <td class="am-hide-sm-only"><s:property value="projects.size()"/></td>
+	                                            <td>
+	                                                <div class="am-btn-toolbar">
+	                                                    <div class="am-btn-group am-btn-group-xs">
+	                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+	                                                        <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+	                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+	                                                    </div>
+	                                                </div>
+	                                            </td>
+	                                        </tr>
+                                        </s:iterator>
+                                    </tbody>
+                                </table>
+                                <div class="am-cf">
 
+                                    <div class="am-fr">
+                                        <ul class="am-pagination tpl-pagination">
+                                            <li class="am-disabled"><a href="#">«</a></li>
+                                            <li class="am-active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <hr>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tpl-alert"></div>
             </div>
 
 
@@ -342,7 +388,6 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/amazeui.min.js"></script>
     <script src="assets/js/app.js"></script>
-    
 </body>
 
 </html>
