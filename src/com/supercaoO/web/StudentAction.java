@@ -1,13 +1,19 @@
 package com.supercaoO.web;
 
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.supercaoO.bean.Student;
 import com.supercaoO.service.StudentService;
 
 public class StudentAction extends ActionSupport implements ModelDriven<Student> {
+	
+	private static final long serialVersionUID = 7625923638258068941L;
+	
 	private StudentService studentService;
 	public void setStudentService(StudentService studentService) {
 		this.studentService = studentService;
@@ -25,6 +31,46 @@ public class StudentAction extends ActionSupport implements ModelDriven<Student>
 		student.setStudentStatus("1");
 		studentService.save(student, projectId);
 		return "saveSuccess";
+	}
+	
+	public String login() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Student.class);
+		criteria.add(Restrictions.eq("studentId", student.getStudentId()));
+		criteria.add(Restrictions.eq("studentPassword", student.getStudentPassword()));
+		criteria.add(Restrictions.eq("studentStatus", "1"));
+		Student student = studentService.login(criteria);
+		if (student != null) {
+			ServletActionContext.getRequest().getSession().setAttribute("student", student);
+			return SUCCESS;
+		} else {
+			return LOGIN;
+		}
+	}
+	
+	/*public String query() {
+		List<Manager> managerList = managerService.query();
+		ValueStack valueStack = ActionContext.getContext().getValueStack();
+		valueStack.set("managerList", managerList);
+		return "queryDone";
+	}*/
+	
+	public String repwd() {
+		String newStudentPassword = ServletActionContext.getRequest().getParameter("newStudentPassword");
+		String confirmStudentPassword = ServletActionContext.getRequest().getParameter("confirmStudentPassword");
+		if ( !newStudentPassword.equals(confirmStudentPassword) ) {
+			return "repwd";
+		} else {
+			DetachedCriteria criteria = DetachedCriteria.forClass(Student.class);
+			criteria.add(Restrictions.eq("studentId", student.getStudentId()));
+			criteria.add(Restrictions.eq("studentPassword", student.getStudentPassword()));
+			int i = studentService.reqwd(criteria, newStudentPassword);
+			if (i == 1) {
+				ActionContext.getContext().getSession().remove("student");
+				return "repwdSuccess";
+			}
+			else
+				return "repwd";
+		}
 	}
 
 }

@@ -1,4 +1,7 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
@@ -327,6 +330,35 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    
+                                    	<s:iterator value="projectList">
+	                                    	<tr>
+	                                            <td><input type="checkbox"></td>
+	                                            <td><s:property value="projectId"/></td>
+	                                            <td><a href="#"><s:property value="projectName"/></a></td>
+	                                            <td>default</td>
+	                                            <td class="am-hide-sm-only">测试1号</td>
+	                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+	                                            <td>
+	                                                <div class="am-btn-toolbar">
+	                                                    <div class="am-btn-group am-btn-group-xs">
+	                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+	                                                        <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+	                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+	                                                    </div>
+	                                                </div>
+	                                            </td>
+	                                        </tr>
+                                        </s:iterator>
+                                        
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                         <tr>
                                             <td><input type="checkbox"></td>
                                             <td>1</td>

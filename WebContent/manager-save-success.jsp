@@ -164,7 +164,7 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-                        <a href="index.jsp" class="nav-link active">
+                        <a href="manager-index.jsp" class="nav-link active">
                             <i class="am-icon-home"></i>
                             <span>首页</span>
                         </a>
@@ -225,13 +225,18 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu" style="display: block;">
                             <li>
-                                <a href="form-amazeui.jsp">
+                                <a href="${ pageContext.request.contextPath }/manager_query.action">
                                     <i class="am-icon-angle-right"></i>
                                     <span>项目</span>
                                     <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                                 </a>
+                                
+                                <a href="manager-save.jsp">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>管理员</span>
+                                </a>
 
-                                <a href="form-line.html">
+                                <a href="${ pageContext.request.contextPath }/project_query.action">
                                     <i class="am-icon-angle-right"></i>
                                     <span>成员</span>
                                 </a>
@@ -242,7 +247,7 @@
                     <li class="tpl-left-nav-item">
                         <a href="login.html" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-key"></i>
-                            <span>登录</span>
+                            <span>修改密码</span>
 
                         </a>
                     </li>

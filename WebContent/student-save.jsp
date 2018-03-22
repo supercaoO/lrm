@@ -225,7 +225,7 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu" style="display: block;">
                             <li>
-                                <a href="form-amazeui.jsp">
+                                <a href="${ pageContext.request.contextPath }/manager_query.action">
                                     <i class="am-icon-angle-right"></i>
                                     <span>项目</span>
                                     <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
@@ -236,7 +236,7 @@
                                     <span>管理员</span>
                                 </a>
 
-                                <a href="form-line.html">
+                                <a href="#">
                                     <i class="am-icon-angle-right"></i>
                                     <span>成员</span>
                                 </a>
@@ -247,7 +247,7 @@
                     <li class="tpl-left-nav-item">
                         <a href="login.html" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-key"></i>
-                            <span>登录</span>
+                            <span>修改密码</span>
 
                         </a>
                     </li>

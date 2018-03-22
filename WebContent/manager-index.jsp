@@ -163,7 +163,7 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-                        <a href="index.jsp" class="nav-link active">
+                        <a href="manager-index.jsp" class="nav-link active">
                             <i class="am-icon-home"></i>
                             <span>首页</span>
                         </a>
@@ -181,20 +181,20 @@
                     <li class="tpl-left-nav-item">
                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-table"></i>
-                            <span>表格</span>
+                            <span>查询</span>
                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                         </a>
                         <ul class="tpl-left-nav-sub-menu">
                             <li>
-                                <a href="table-font-list.html">
+                                <a href="${ pageContext.request.contextPath }/project_list.action">
                                     <i class="am-icon-angle-right"></i>
-                                    <span>文字表格</span>
+                                    <span>项目</span>
                                     <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                                 </a>
 
                                 <a href="table-images-list.html">
                                     <i class="am-icon-angle-right"></i>
-                                    <span>图片表格</span>
+                                    <span>成员</span>
                                     <i class="tpl-left-nav-content tpl-badge-success">
                18
              </i>
