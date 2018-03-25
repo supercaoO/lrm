@@ -50,10 +50,7 @@
 						<input type="password" id="doc-ipt-pwd-11" name="confirmStudentPassword" class="" placeholder="请再次输入新密码，并点击检查按钮确认无误">
 					</div>
 					<p>
-						<button type="submit" class="am-btn am-btn-default">确认修改</button>
-					</p>
-					<p>
-						<button type="button" name="check" class="am-btn am-btn-default" onclick="checkNewPwd()">检查</button>
+						<button type="submit" class="am-btn am-btn-default" onclick="checkNewPwd()">确认修改</button>
 					</p>
 				</fieldset>
 			</form>
@@ -68,10 +65,10 @@
 	function checkNewPwd(){
 		var obj1=document.getElementById("doc-ipt-email-11");
 		var obj2=document.getElementById("doc-ipt-pwd-11");
-		if(obj1.value != obj2.value)
-			alert("确认新密码失败，请再次确认新密码");
-		else
-			alert("确认新密码成功");
+		if(obj1.value != obj2.value){
+			alert("新密码两次输入不一致，请重新尝试");
+			return false;
+		}
 	}
 	</script>
 </body>

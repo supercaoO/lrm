@@ -13,8 +13,11 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.util.ValueStack;
+import com.supercaoO.bean.Manager;
 import com.supercaoO.bean.Project;
 import com.supercaoO.service.ProjectService;
+
+import sun.print.resources.serviceui;
 
 public class ProjectAction extends ActionSupport implements ModelDriven<Project> {
 	private static final long serialVersionUID = 578440647771320843L;
@@ -35,6 +38,64 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 	}
 	
 	public String save() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
+		Integer managerId = Integer.valueOf(ServletActionContext.getRequest().getParameter("managerId"));
+		criteria.add(Restrictions.eq("managerId", managerId));
+		project.setProjectStatus("1");
+		project.setLastCommitDate(dateFormat.format(new Date()));
+		projectService.save(project, criteria);
+		return "projectSaveDone";
+	}
+	
+	public String list() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
+		criteria.add(Restrictions.eq("projectStatus", "1"));
+		List<Project> projectList = projectService.list(criteria);
+		ValueStack valueStack = ActionContext.getContext().getValueStack();
+		valueStack.set("projectList", projectList);
+		return ServletActionContext.getRequest().getParameter("operation");
+	}
+	
+	public String queryStudents() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
+		criteria.add(Restrictions.eq("projectStatus", "1"));
+		String projectId = ServletActionContext.getRequest().getParameter("projectId");
+		criteria.add(Restrictions.eq("projectId", Integer.valueOf(projectId)));
+		List<Project> projectList = projectService.list(criteria);
+		ValueStack valueStack = ActionContext.getContext().getValueStack();
+		if(projectList != null && projectList.size() > 0) {
+			valueStack.set("studentList", projectList.get(0).getStudents());
+			System.out.println(projectList.get(0).getStudents().size());
+		}
+		return "studentList";
+	}
+	
+	public String update() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
+		Integer managerId = Integer.valueOf(ServletActionContext.getRequest().getParameter("managerId"));
+		criteria.add(Restrictions.eq("managerId", managerId));
+		project.setProjectStatus("1");		
+		project.setLastCommitDate(dateFormat.format(new Date()));
+		projectService.update(project, criteria);
+		list();
+		return "projectList";
+	}
+	
+	public String delete() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
+		String projectId = ServletActionContext.getRequest().getParameter("projectId");
+		try {
+			projectId = new String(projectId.getBytes("iso-8859-1"), "utf-8");
+			criteria.add(Restrictions.eq("projectId", Integer.valueOf(projectId)));
+			projectService.delete(criteria);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		list();
+		return "projectList";
+	}
+	
+	/*public String save() {
 		String managerId = ServletActionContext.getRequest().getParameter("managerId");
 		project.setProjectStatus("1");
 		String currentDate = dateFormat.format(new Date(System.currentTimeMillis()));
@@ -82,6 +143,6 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 	public String list() {
 		query();
 		return "listDone";
-	}
+	}*/
 
 }

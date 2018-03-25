@@ -44,7 +44,7 @@
 					<div class="am-form-group">
 						<input type="password" name="managerPassword" class="" id="doc-ipt-pwd-1" placeholder="请输入密码">
 					</div>
-					<p><button type="submit" class="am-btn am-btn-default">登录</button></p>
+					<p><button type="submit" class="am-btn am-btn-default" onclick="checkInput()">登录</button></p>
 				</fieldset>
 			</form>
 		</div>
@@ -54,6 +54,20 @@
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/amazeui.min.js"></script>
   <script src="assets/js/app.js"></script>
+  <script>
+	function checkInput(){
+		var obj1 = document.getElementById("doc-ipt-email-1");
+		var obj2 = document.getElementById("doc-ipt-pwd-1");
+		if(obj1.value == ""){
+			alert("请输入账号");
+			return false;
+		} else if(obj2.value == ""){
+			alert("请输入密码");
+			return false;
+		}
+		return true;
+	}
+  </script>
 </body>
 
 </html>

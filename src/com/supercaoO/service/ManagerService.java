@@ -8,7 +8,7 @@ import com.supercaoO.bean.Manager;
 
 public interface ManagerService {
 
-	Manager login(DetachedCriteria criteria);
+	/*Manager login(DetachedCriteria criteria);
 
 	List<Manager> query(DetachedCriteria criteria);
 
@@ -16,5 +16,16 @@ public interface ManagerService {
 
 	Integer save(Manager manager);
 
-	int reqwd(DetachedCriteria criteria, String newManagerPassword);
+	int reqwd(DetachedCriteria criteria, String newManagerPassword);*/
+	
+	Manager login(DetachedCriteria criteria);
+	
+	List<Manager> list();
+	
+	List<Manager> list(DetachedCriteria criteria);
+	
+	Integer save(Manager manager);
+
+	int repwd(DetachedCriteria criteria, String newManagerPassword);
+	
 }

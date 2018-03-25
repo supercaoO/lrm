@@ -16,6 +16,36 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 	
 	public Manager login(DetachedCriteria criteria) {
+		List<Manager> managerList = managerDao.query(criteria);
+		if(managerList != null && managerList.size() > 0)
+			return managerList.get(0);
+		return null;
+	}
+
+	public List<Manager> list() {
+		return list(null);
+	}
+
+	public List<Manager> list(DetachedCriteria criteria) {
+		return managerDao.query(criteria);
+	}
+
+	public Integer save(Manager manager) {
+		return managerDao.save(manager);
+	}
+
+	public int repwd(DetachedCriteria criteria, String newManagerPassword) {
+		List<Manager> managerList = managerDao.query(criteria);
+		Manager manager = null;
+		if(managerList != null && managerList.size() > 0) {
+			manager = managerList.get(0);
+			manager.setManagerPassword(newManagerPassword);
+			return 1;
+		}
+		return -1;
+	}
+	
+	/*public Manager login(DetachedCriteria criteria) {
 		return managerDao.getManagerByIdAndPwd(criteria);
 	}
 
@@ -39,7 +69,7 @@ public class ManagerServiceImpl implements ManagerService {
 			manager.setManagerPassword(newManagerPassword);
 			return 1;
 		}
-	}
+	}*/
 
 	
 

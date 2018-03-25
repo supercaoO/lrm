@@ -7,6 +7,7 @@ import org.apache.struts2.ServletActionContext;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 
+import com.caoO.encryption.MD5;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -30,21 +31,83 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 	public String login() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
 		criteria.add(Restrictions.eq("managerId", manager.getManagerId()));
+		criteria.add(Restrictions.eq("managerPassword", MD5.encrypt(manager.getManagerPassword())));
+		criteria.add(Restrictions.eq("managerStatus", "1"));
+		Manager exitingManager = managerService.login(criteria);
+		if(exitingManager != null) {
+			ServletActionContext.getRequest().getSession().setAttribute("manager", exitingManager);
+			return "loginSuccess";
+		}
+		return LOGIN;
+	}
+	
+	public String list() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
+		criteria.add(Restrictions.eq("managerStatus", "1"));
+		List<Manager> managerList = managerService.list(criteria);
+		ValueStack valueStack = ActionContext.getContext().getValueStack();
+		valueStack.set("managerList", managerList);
+		return ServletActionContext.getRequest().getParameter("operation");
+	}
+	
+	public String save() {
+		manager.setManagerPassword(MD5.encrypt("123456"));
+		manager.setManagerStatus("1");
+		Integer managerId = managerService.save(manager);
+		ActionContext.getContext().getValueStack().push(managerId.toString());
+		return "managerSaveDone";
+	}
+	
+	public String repwd() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
+		criteria.add(Restrictions.eq("managerId", manager.getManagerId()));
+		criteria.add(Restrictions.eq("managerPassword", MD5.encrypt(manager.getManagerPassword())));
+		criteria.add(Restrictions.eq("managerStatus", "1"));
+		String newManagerPassword = ServletActionContext.getRequest().getParameter("newManagerPassword");
+		if(1 == managerService.repwd(criteria, MD5.encrypt(newManagerPassword))) {
+			return "managerRepwdDone";
+		}
+		return "managerRepwd";
+	}
+	
+	public String listWithProjectId() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class).add(Restrictions.eq("managerStatus", "1"));
+		List<Manager> managerList = managerService.list(criteria);
+		ValueStack valueStack = ActionContext.getContext().getValueStack();
+		String thisManagerId = ServletActionContext.getRequest().getParameter("thisManagerId");
+		if(thisManagerId != null) {
+			try {
+				thisManagerId = new String(thisManagerId.getBytes("iso-8859-1"), "utf-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			for (int index = 0; index < managerList.size(); index++) {
+				if(managerList.get(index).getManagerId().toString().equals(thisManagerId)) {
+					managerList.remove(index);
+					break;
+				}
+			}
+		}
+		valueStack.set("managerList", managerList);
+		return "projectUpdate";
+	}
+	
+	/*public String login() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
+		criteria.add(Restrictions.eq("managerId", manager.getManagerId()));
 		criteria.add(Restrictions.eq("managerPassword", manager.getManagerPassword()));
 		criteria.add(Restrictions.eq("managerStatus", "1"));
 		Manager manager = managerService.login(criteria);
 		if (manager != null) {
 			ServletActionContext.getRequest().getSession().setAttribute("manager", manager);
 			return SUCCESS;
-		} else {
-			return "managerLogin";
 		}
+		return NONE;
 	}
 	
 	public String logout() {
 		ServletActionContext.getRequest().getSession().removeAttribute("manager");
 		return LOGIN;
-		
 	}
 	
 	public String query() {
@@ -99,6 +162,6 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 			else
 				return "repwd";
 		}
-	}
+	}*/
 	
 }

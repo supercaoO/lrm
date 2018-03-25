@@ -74,7 +74,7 @@
 	
 	<bean id="projectService" class="com.supercaoO.service.ProjectServiceImpl">
 		<property name="projectDao" ref="projectDao"/>
-		<property name="managerService" ref="managerService"/>
+		<property name="managerDao" ref="managerDao"/>
 	</bean>
 	
 	<bean id="projectDao" class="com.supercaoO.dao.ProjectDaoImpl">
@@ -92,7 +92,7 @@
 	
 	<bean id="studentService" class="com.supercaoO.service.StudentServiceImpl">
 		<property name="studentDao" ref="studentDao"/>
-		<property name="projectService" ref="projectService"/>
+		<property name="projectDao" ref="projectDao"/>
 	</bean>
 	
 	<bean id="studentDao" class="com.supercaoO.dao.StudentDaoImpl">

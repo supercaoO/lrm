@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.supercaoO.bean.Manager;
 import com.supercaoO.bean.Project;
 import com.supercaoO.bean.Student;
+import com.supercaoO.dao.ProjectDao;
 import com.supercaoO.dao.StudentDao;
 
 @Transactional
@@ -17,7 +18,24 @@ public class StudentServiceImpl implements StudentService {
 		this.studentDao = studentDao;
 	}
 	
-	private ProjectService projectService;
+	private ProjectDao projectDao;
+	public void setProjectDao(ProjectDao projectDao) {
+		this.projectDao = projectDao;
+	}
+
+
+	public int save(Student student, DetachedCriteria criteria) {
+		List<Project> projectList = projectDao.query(criteria);
+		Project project = null;
+		if(projectList != null && projectList.size() > 0) {
+			project = projectList.get(0);
+			student.getProjects().add(project);
+		}
+		return studentDao.save(student);
+		
+	}
+	
+	/*private ProjectService projectService;
 	public void setProjectService(ProjectService projectService) {
 		this.projectService = projectService;
 	}
@@ -45,7 +63,7 @@ public class StudentServiceImpl implements StudentService {
 
 	public List<Student> query() {
 		return studentDao.query();
-	}
+	}*/
 	
 
 }
