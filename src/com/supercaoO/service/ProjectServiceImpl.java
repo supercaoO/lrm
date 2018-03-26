@@ -42,7 +42,7 @@ public class ProjectServiceImpl implements ProjectService {
 		List<Project> projectList = projectDao.query(DetachedCriteria.forClass(Project.class).add(Restrictions.eq("projectId", project.getProjectId())));
 		Manager manager = null;
 		Project exitingProject = null;
-		if(managerList != null && managerList.size() > 0 && projectList != null && managerList.size() > 0) {
+		if(managerList != null && managerList.size() > 0 && projectList != null && projectList.size() > 0) {
 			manager = managerList.get(0);
 			exitingProject = projectList.get(0);
 			exitingProject.setManager(manager);
@@ -63,6 +63,14 @@ public class ProjectServiceImpl implements ProjectService {
 			return 1;
 		}
 		return -1;
+	}
+
+	public Project query(DetachedCriteria criteria) {
+		List<Project> projectList = projectDao.query(criteria);
+		if(projectList != null && projectList.size() > 0) {
+			return projectList.get(0);
+		}
+		return null;
 	}
 	
 

@@ -44,6 +44,15 @@ public class ManagerServiceImpl implements ManagerService {
 		}
 		return -1;
 	}
+
+	public Manager query(DetachedCriteria criteria) {
+		List<Manager> managerList = managerDao.query(criteria);
+		Manager manager = null;
+		if(managerList != null && managerList.size() > 0) {
+			manager = managerList.get(0);
+		}
+		return manager;
+	}
 	
 	/*public Manager login(DetachedCriteria criteria) {
 		return managerDao.getManagerByIdAndPwd(criteria);

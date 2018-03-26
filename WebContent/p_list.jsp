@@ -54,7 +54,8 @@
 					<li class="tpl-dropdown-content-external">
 						<h3>
 							你有 <span class="tpl-color-success">5</span> 条提醒
-						</h3> <a href="###">全部</a>
+						</h3>
+						<a href="###">全部</a>
 					</li>
 					<li class="tpl-dropdown-list-bdbc"><a href="#"
 						class="tpl-dropdown-list-fl"><span
@@ -80,7 +81,8 @@
 					<li class="tpl-dropdown-content-external">
 						<h3>
 							你有 <span class="tpl-color-danger">9</span> 条新消息
-						</h3> <a href="###">全部</a>
+						</h3>
+						<a href="###">全部</a>
 					</li>
 					<li><a href="#" class="tpl-dropdown-content-message"> <span
 							class="tpl-dropdown-content-photo"> <img
@@ -111,7 +113,8 @@
 					<li class="tpl-dropdown-content-external">
 						<h3>
 							你有 <span class="tpl-color-primary">4</span> 个任务进度
-						</h3> <a href="###">全部</a>
+						</h3>
+						<a href="###">全部</a>
 					</li>
 					<li><a href="javascript:;"
 						class="tpl-dropdown-content-progress"> <span class="task">
@@ -187,7 +190,7 @@
 			<br>
 			<div class="tpl-left-nav-list">
 				<ul class="tpl-left-nav-menu">
-					<li class="tpl-left-nav-item"><a href="manager-index.jsp"
+					<li class="tpl-left-nav-item"><a href="m_index.jsp"
 						class="nav-link active"> <i class="am-icon-home"></i> <span>首页</span>
 					</a></li>
 					<li class="tpl-left-nav-item"><a href="chart.html"
@@ -202,15 +205,16 @@
 							class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
 					</a>
 						<ul class="tpl-left-nav-sub-menu">
-							<li><a href="#"> <i class="am-icon-angle-right"></i> <span>项目</span>
-									<i
+							<li><a
+								href="${ pageContext.request.contextPath }/project_list.action?operation=projectList">
+									<i class="am-icon-angle-right"></i> <span>项目</span> <i
 									class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
 							</a> <a
-								href="${ pageContext.request.contextPath }/manager_list.action">
+								href="${ pageContext.request.contextPath }/manager_list.action?operation=managerList">
 									<i class="am-icon-angle-right"></i> <span>管理员</span> <i
 									class="tpl-left-nav-content tpl-badge-success"> 18 </i>
 							</a> <a
-								href="${ pageContext.request.contextPath }/student_list.action">
+								href="${ pageContext.request.contextPath }/student_list.action?operation=studentList">
 									<i class="am-icon-angle-right"></i> <span>成员</span> <i
 									class="tpl-left-nav-content tpl-badge-primary"> 5 </i>
 							</a> <a href="form-news-list.html"> <i
@@ -226,18 +230,18 @@
 					</a>
 						<ul class="tpl-left-nav-sub-menu" style="display: block;">
 							<li><a
-								href="${ pageContext.request.contextPath }/manager_query.action">
+								href="${ pageContext.request.contextPath }/manager_list.action?operation=projectSave">
 									<i class="am-icon-angle-right"></i> <span>项目</span> <i
 									class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
-							</a> <a href="manager-save.jsp"> <i class="am-icon-angle-right"></i>
+							</a> <a href="m_save.jsp"> <i class="am-icon-angle-right"></i>
 									<span>管理员</span>
 							</a> <a
-								href="${ pageContext.request.contextPath }/project_query.action">
+								href="${ pageContext.request.contextPath }/project_list.action?operation=studentSave">
 									<i class="am-icon-angle-right"></i> <span>成员</span>
 							</a></li>
 						</ul></li>
 
-					<li class="tpl-left-nav-item"><a href="manager-repwd.jsp"
+					<li class="tpl-left-nav-item"><a href="m_repwd.jsp"
 						class="nav-link tpl-left-nav-link-list"> <i
 							class="am-icon-key"></i> <span>修改密码</span>
 
@@ -339,7 +343,7 @@
 											<tr>
 												<td><input type="checkbox"></td>
 												<td><s:property value="projectId" /></td>
-												<td><a href="#"><s:property value="projectName" /></a></td>
+												<td><a href="${ pageContext.request.contextPath }/project_query.action?projectId=${ projectId }"><s:property value="projectName" /></a></td>
 												<td>default</td>
 												<td class="am-hide-sm-only"><s:property
 														value="manager.managerName" /></td>

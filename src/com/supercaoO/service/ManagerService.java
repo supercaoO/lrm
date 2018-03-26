@@ -27,5 +27,7 @@ public interface ManagerService {
 	Integer save(Manager manager);
 
 	int repwd(DetachedCriteria criteria, String newManagerPassword);
+
+	Manager query(DetachedCriteria criteria);
 	
 }

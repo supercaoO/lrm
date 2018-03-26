@@ -24,4 +24,6 @@ public interface ProjectService {
 
 	int delete(DetachedCriteria criteria);
 
+	Project query(DetachedCriteria criteria);
+
 }

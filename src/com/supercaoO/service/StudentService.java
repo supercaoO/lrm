@@ -10,6 +10,8 @@ public interface StudentService {
 
 	int save(Student student, DetachedCriteria criteria);
 
+	List<Student> list(DetachedCriteria criteria);
+
 	/*void save(Student student, String projectId);
 
 	Student login(DetachedCriteria criteria);

@@ -256,121 +256,43 @@
 
 
 		<div class="tpl-content-wrapper">
-			<%
-				String projectId = request.getParameter("projectId");
-				String projectName = request.getParameter("projectName");
-				String thisManagerId = request.getParameter("thisManagerId");
-				String thisManagerName = "";
-				String display = "";
-				if (thisManagerId != null) {
-					thisManagerName = new String(request.getParameter("thisManagerName").getBytes("iso-8859-1"), "utf-8");
-					projectName = new String(projectName.getBytes("iso-8859-1"), "utf-8");
-					projectId = new String(projectId.getBytes("iso-8859-1"), "utf-8");
-				} else {
-					projectName = "";
-					thisManagerId = "";
-					display = "none";
-				}
-			%>
 			<ol class="am-breadcrumb">
-				<li><a href="manager-index.jsp" class="am-icon-home">首页</a></li>
-				<li><a href="#">查询</a></li>
-				<li><a href="#">项目</a></li>
-				<li><a href="#"><%=projectName%></a>
+				<li><a href="#" class="am-icon-home">首页</a></li>
+				<li><a href="#">分类</a></li>
+				<li><a href="#">内容</a></li>
 			</ol>
-			<div class="tpl-portlet-components">
-				<div class="portlet-title">
-					<div class="caption font-green bold">
-						<span class="am-icon-code"></span>
-						更新项目
-
-					</div>
-					<div class="tpl-portlet-input tpl-fz-ml">
-						<div class="portlet-input input-small input-inline">
-							<div class="input-icon right">
-								<i class="am-icon-search"></i> <input type="text"
-									class="form-control form-control-solid" placeholder="搜索...">
-							</div>
-						</div>
-					</div>
-
-
+			<div class="tpl-content-scope">
+				<div class="note note-info">
+					<h3>
+						<s:property value="managerName" />
+						<span class="close" data-close="note"></span>
+					</h3>
+					<hr>
+					<p>
+						管理员编号：
+						<s:property value="managerId" />
+					</p>
+					<hr>
+					<p>
+						<span class="label label-danger">所管理项目</span>
+						<br>
+						<s:iterator value="projects">
+						<p>
+						<a href="${ pageContext.request.contextPath }/project_query.action?projectId=${ projectId }">
+							<s:property value="projectName" />&nbsp;&nbsp;
+						</a>
+							</p>
+                    	</s:iterator>
+					</p>
 				</div>
-				<div class="tpl-block ">
-
-					<div class="am-g tpl-amazeui-form">
-
-
-						<div class="am-u-sm-12 am-u-md-9">
-							<form class="am-form am-form-horizontal"
-								action="${ pageContext.request.contextPath }/project_update.action"
-								method="post">
-								<div class="am-form-group">
-									<label for="user-name" class="am-u-sm-3 am-form-label">项目名
-										/ ProjectName</label>
-									<div class="am-u-sm-9">
-										<input type="text" id="user-name" name="projectName"
-											placeholder="请输入新项目名 / ProjectName">
-									</div>
-								</div>
-
-								<div class="am-form-group">
-									<label for="user-email" class="am-u-sm-3 am-form-label">所属管理员
-										/ Manager</label>
-									<div class="am-u-sm-9">
-										<select
-											<%-- data-am-selected="{btnSize: 'sm'}" --%> name="managerId">
-											<option value="<%=thisManagerId%>"
-												style="display: <%=display%>"><%=thisManagerName%></option>
-											<s:iterator value="managerList">
-												<option value="${ managerId }"><s:property
-														value="managerName" /></option>
-											</s:iterator>
-										</select>
-									</div>
-								</div>
-
-								<div class="am-form-group">
-									<label for="user-intro" class="am-u-sm-3 am-form-label">项目简介
-										/ Intro</label>
-									<div class="am-u-sm-9">
-										<textarea class="" rows="5" id="user-intro"
-											name="projectIntro" placeholder="请输入新项目简介"></textarea>
-									</div>
-								</div>
-
-								<div class="am-form-group">
-									<div class="am-u-sm-9 am-u-sm-push-3">
-										<button type="submit" name="projectId"
-											value="<%=projectId%>" class="am-btn am-btn-primary">
-											确认更新</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-
 			</div>
-
-
-
-
-
-
-
-
-
-
 		</div>
 
-	</div>
 
-
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/amazeui.min.js"></script>
-	<script src="assets/js/app.js"></script>
-
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/amazeui.min.js"></script>
+		<script src="assets/js/iscroll.js"></script>
+		<script src="assets/js/app.js"></script>
 </body>
 
 </html>

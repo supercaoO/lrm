@@ -40,6 +40,15 @@ public class StudentAction extends ActionSupport implements ModelDriven<Student>
 		return "studentSaveDone";
 	}
 	
+	public String list() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Student.class);
+		criteria.add(Restrictions.eq("studentStatus", "1"));
+		List<Student> studentList = studentService.list(criteria);
+		ValueStack valueStack = ActionContext.getContext().getValueStack();
+		valueStack.set("studentList", studentList);
+		return ServletActionContext.getRequest().getParameter("operation");
+	}
+	
 	/*public String login() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Student.class);
 		if(student != null) {

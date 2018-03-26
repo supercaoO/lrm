@@ -13,6 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.util.ValueStack;
 import com.supercaoO.bean.Manager;
+import com.supercaoO.bean.Project;
 import com.supercaoO.service.ManagerService;
 
 public class ManagerAction extends ActionSupport implements ModelDriven<Manager> {
@@ -90,6 +91,16 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 		}
 		valueStack.set("managerList", managerList);
 		return "projectUpdate";
+	}
+	
+	public String query() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
+		String managerId = ServletActionContext.getRequest().getParameter("managerId");
+		criteria.add(Restrictions.eq("managerId", Integer.valueOf(managerId)));
+		Manager manager = managerService.query(criteria);
+		ValueStack valueStack = ActionContext.getContext().getValueStack();
+		valueStack.push(manager);
+		return "managerMsg";
 	}
 	
 	/*public String login() {

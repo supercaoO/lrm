@@ -34,6 +34,10 @@ public class StudentServiceImpl implements StudentService {
 		return studentDao.save(student);
 		
 	}
+
+	public List<Student> list(DetachedCriteria criteria) {
+		return studentDao.query(criteria);
+	}
 	
 	/*private ProjectService projectService;
 	public void setProjectService(ProjectService projectService) {

@@ -191,7 +191,7 @@
 			<br>
 			<div class="tpl-left-nav-list">
 				<ul class="tpl-left-nav-menu">
-					<li class="tpl-left-nav-item"><a href="manager-index.jsp"
+					<li class="tpl-left-nav-item"><a href="m_index.jsp"
 						class="nav-link active"> <i class="am-icon-home"></i> <span>首页</span>
 					</a></li>
 					<li class="tpl-left-nav-item"><a href="chart.html"
@@ -207,15 +207,15 @@
 					</a>
 						<ul class="tpl-left-nav-sub-menu">
 							<li><a
-								href="${ pageContext.request.contextPath }/project_list.action">
+								href="${ pageContext.request.contextPath }/project_list.action?operation=projectList">
 									<i class="am-icon-angle-right"></i> <span>项目</span> <i
 									class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
 							</a> <a
-								href="${ pageContext.request.contextPath }/manager_list.action">
+								href="${ pageContext.request.contextPath }/manager_list.action?operation=managerList">
 									<i class="am-icon-angle-right"></i> <span>管理员</span> <i
 									class="tpl-left-nav-content tpl-badge-success"> 18 </i>
 							</a> <a
-								href="${ pageContext.request.contextPath }/student_list.action">
+								href="${ pageContext.request.contextPath }/student_list.action?operation=studentList">
 									<i class="am-icon-angle-right"></i> <span>成员</span> <i
 									class="tpl-left-nav-content tpl-badge-primary"> 5 </i>
 							</a> <a href="form-news-list.html"> <i
@@ -231,18 +231,18 @@
 					</a>
 						<ul class="tpl-left-nav-sub-menu" style="display: block;">
 							<li><a
-								href="${ pageContext.request.contextPath }/manager_query.action">
+								href="${ pageContext.request.contextPath }/manager_list.action?operation=projectSave">
 									<i class="am-icon-angle-right"></i> <span>项目</span> <i
 									class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
-							</a> <a href="manager-save.jsp"> <i class="am-icon-angle-right"></i>
+							</a> <a href="m_save.jsp"> <i class="am-icon-angle-right"></i>
 									<span>管理员</span>
 							</a> <a
-								href="${ pageContext.request.contextPath }/project_query.action">
+								href="${ pageContext.request.contextPath }/project_list.action?operation=studentSave">
 									<i class="am-icon-angle-right"></i> <span>成员</span>
 							</a></li>
 						</ul></li>
 
-					<li class="tpl-left-nav-item"><a href="manager-repwd.jsp"
+					<li class="tpl-left-nav-item"><a href="m_repwd.jsp"
 						class="nav-link tpl-left-nav-link-list"> <i
 							class="am-icon-key"></i> <span>修改密码</span>
 

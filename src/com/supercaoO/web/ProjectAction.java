@@ -95,6 +95,16 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 		return "projectList";
 	}
 	
+	public String query() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
+		String projectId = ServletActionContext.getRequest().getParameter("projectId");
+		criteria.add(Restrictions.eq("projectId", Integer.valueOf(projectId)));
+		Project project = projectService.query(criteria);
+		ValueStack valueStack = ActionContext.getContext().getValueStack();
+		valueStack.push(project);
+		return "projectMsg";
+	}
+	
 	/*public String save() {
 		String managerId = ServletActionContext.getRequest().getParameter("managerId");
 		project.setProjectStatus("1");
