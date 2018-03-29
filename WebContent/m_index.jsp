@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -158,10 +159,10 @@
 				<a class="am-dropdown-toggle tpl-header-list-link"
 				href="javascript:;"> <span class="tpl-header-list-user-nick">${ manager.managerName }</span><span
 					class="tpl-header-list-user-ico"> <img
-						src="assets/img/userImg.png" style="margin: 15px"></span>
+						src="${ manager.headImgPath }" style="margin: 15px"></span>
 			</a>
 				<ul class="am-dropdown-content">
-					<li><a href="#"><span class="am-icon-bell-o"></span> 资料</a></li>
+					<li><a href="h_img_save.jsp"><span class="am-icon-bell-o"></span> 修改头像</a></li>
 					<li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
 					<li><a
 						href="${ pageContext.request.contextPath }/manager_logout.action"><span
@@ -206,21 +207,18 @@
 					</a>
 						<ul class="tpl-left-nav-sub-menu">
 							<li><a
-								href="${ pageContext.request.contextPath }/project_list.action?operation=projectList">
+								href="${ pageContext.request.contextPath }/project_queryByPage.action?operation=projectList">
 									<i class="am-icon-angle-right"></i> <span>项目</span> <i
 									class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
 							</a> <a
-								href="${ pageContext.request.contextPath }/manager_list.action?operation=managerList">
+								href="${ pageContext.request.contextPath }/manager_queryByPage.action?operation=managerList">
 									<i class="am-icon-angle-right"></i> <span>管理员</span> <i
 									class="tpl-left-nav-content tpl-badge-success"> 18 </i>
 							</a> <a
-								href="${ pageContext.request.contextPath }/student_list.action?operation=studentList">
+								href="${ pageContext.request.contextPath }/student_queryByPage.action?operation=studentList">
 									<i class="am-icon-angle-right"></i> <span>成员</span> <i
 									class="tpl-left-nav-content tpl-badge-primary"> 5 </i>
-							</a> <a href="form-news-list.html"> <i
-									class="am-icon-angle-right"></i> <span>文字列表</span>
-
-							</a></li>
+							</a> </li>
 						</ul></li>
 
 					<li class="tpl-left-nav-item"><a href="javascript:;"
@@ -282,10 +280,10 @@
 							<i class="am-icon-bar-chart-o"></i>
 						</div>
 						<div class="details">
-							<div class="number">62%</div>
-							<div class="desc">收视率</div>
+							<div class="number">5</div>
+							<div class="desc">项目</div>
 						</div>
-						<a class="more" href="#"> 查看更多 <i
+						<a class="more" href="${ pageContext.request.contextPath }/project_queryByPage.action?operation=projectList"> 查看更多 <i
 							class="m-icon-swapright m-icon-white"></i>
 						</a>
 					</div>
@@ -297,7 +295,7 @@
 						</div>
 						<div class="details">
 							<div class="number">653</div>
-							<div class="desc">苹果设备</div>
+							<div class="desc">新项目进度</div>
 						</div>
 						<a class="more" href="#"> 查看更多 <i
 							class="m-icon-swapright m-icon-white"></i>
@@ -311,7 +309,7 @@
 						</div>
 						<div class="details">
 							<div class="number">786</div>
-							<div class="desc">安卓设备</div>
+							<div class="desc">新增项目</div>
 						</div>
 						<a class="more" href="#"> 查看更多 <i
 							class="m-icon-swapright m-icon-white"></i>
@@ -347,25 +345,25 @@
 					<div class="tpl-portlet">
 						<div class="tpl-portlet-title">
 							<div class="tpl-caption font-red ">
-								<i class="am-icon-bar-chart"></i> <span> Cloud 动态资料</span>
+								<i class="am-icon-bar-chart"></i> <span> Cloud 研究所成员</span>
 							</div>
 							<div class="actions">
 								<ul class="actions-btn">
-									<li class="purple-on">昨天</li>
-									<li class="green">前天</li>
-									<li class="dark">本周</li>
+									<li class="purple-on">大二</li>
+									<li class="green">大三</li>
+									<li class="dark">大四</li>
 								</ul>
 							</div>
 						</div>
 						<div class="tpl-scrollable">
 							<div class="number-stats">
 								<div class="stat-number am-fl am-u-md-6">
-									<div class="title am-text-right">Total</div>
-									<div class="number am-text-right am-text-warning">2460</div>
+									<div class="title am-text-right">成员总数</div>
+									<div class="number am-text-right am-text-warning">61</div>
 								</div>
 								<div class="stat-number am-fr am-u-md-6">
-									<div class="title">Total</div>
-									<div class="number am-text-success">2460</div>
+									<div class="title">项目总数</div>
+									<div class="number am-text-success">24</div>
 								</div>
 
 							</div>
@@ -373,59 +371,59 @@
 							<table class="am-table tpl-table">
 								<thead>
 									<tr class="tpl-table-uppercase">
-										<th>人员</th>
-										<th>余额</th>
-										<th>次数</th>
+										<th>姓名</th>
+										<th>学号</th>
+										<th>项目数</th>
 										<th>效率</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td><img src="assets/img/user01.png" alt=""
-											class="user-pic"> <a class="user-name" href="###">禁言小张</a>
+											class="user-pic"> <a class="user-name" href="###">张三</a>
 										</td>
-										<td>￥3213</td>
-										<td>65</td>
+										<td>2016052361</td>
+										<td>2</td>
 										<td class="font-green bold">26%</td>
 									</tr>
 									<tr>
 										<td><img src="assets/img/user02.png" alt=""
-											class="user-pic"> <a class="user-name" href="###">Alex.</a>
+											class="user-pic"> <a class="user-name" href="###">李四</a>
 										</td>
-										<td>￥2635</td>
-										<td>52</td>
+										<td>2016052362</td>
+										<td>1</td>
 										<td class="font-green bold">32%</td>
 									</tr>
 									<tr>
 										<td><img src="assets/img/user03.png" alt=""
-											class="user-pic"> <a class="user-name" href="###">Tinker404</a>
+											class="user-pic"> <a class="user-name" href="###">王五</a>
 										</td>
-										<td>￥1267</td>
-										<td>65</td>
+										<td>2016052363</td>
+										<td>1</td>
 										<td class="font-green bold">51%</td>
 									</tr>
 									<tr>
 										<td><img src="assets/img/user04.png" alt=""
-											class="user-pic"> <a class="user-name" href="###">Arron.y</a>
+											class="user-pic"> <a class="user-name" href="###">孙六</a>
 										</td>
-										<td>￥657</td>
-										<td>65</td>
+										<td>2016052364</td>
+										<td>2</td>
 										<td class="font-green bold">73%</td>
 									</tr>
 									<tr>
 										<td><img src="assets/img/user05.png" alt=""
-											class="user-pic"> <a class="user-name" href="###">Yves</a>
+											class="user-pic"> <a class="user-name" href="###">陈七</a>
 										</td>
-										<td>￥3907</td>
-										<td>65</td>
+										<td>2016052365</td>
+										<td>3</td>
 										<td class="font-green bold">12%</td>
 									</tr>
 									<tr>
 										<td><img src="assets/img/user06.png" alt=""
-											class="user-pic"> <a class="user-name" href="###">小黄鸡</a>
+											class="user-pic"> <a class="user-name" href="###">黄八</a>
 										</td>
-										<td>￥900</td>
-										<td>65</td>
+										<td>2016052366</td>
+										<td>1</td>
 										<td class="font-green bold">10%</td>
 									</tr>
 								</tbody>
@@ -442,7 +440,7 @@
 					<div class="tpl-portlet">
 						<div class="tpl-portlet-title">
 							<div class="tpl-caption font-green ">
-								<span>指派任务</span> <span class="caption-helper">16 件</span>
+								<span>会议安排</span> <span class="caption-helper">16 件</span>
 							</div>
 							<div class="tpl-portlet-input">
 								<div class="portlet-input input-small input-inline">

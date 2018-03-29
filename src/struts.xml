@@ -3,11 +3,26 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-	
+	<constant name="struts.multipart.maxSize" value="104857600"></constant>
+
 	<package name="lrm" extends="struts-default" namespace="/">
+		<interceptors>
+			<interceptor name="LoginInterceptor" class="com.caoO.interceptor.LoginInterceptor"/>
+		</interceptors>
+		
+		<global-results>
+			<result name="login" type="redirect">login.html</result>
+		</global-results>
+	
 		<action name="manager_*" class="managerAction" method="{1}">
+			<interceptor-ref name="LoginInterceptor">
+				<param name="excludeMethods">login</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack">
+				<param name="fileUpload.allowedExtensions">.jpg,.png</param>
+			</interceptor-ref>
+			<result name="managerLogin" type="redirect">m_login.jsp</result>
 			<result name="loginSuccess" type="redirect">m_index.jsp</result>
-			<result name="login" type="redirect">m_login.jsp</result>
 			<result name="projectSave">p_save.jsp</result>
 			<result name="managerSaveDone">m_save_done.jsp</result>
 			<result name="managerRepwdDone">m_login.jsp</result>
@@ -15,6 +30,9 @@
 			<result name="projectUpdate">p_update.jsp</result>
 			<result name="managerList">m_list.jsp</result>
 			<result name="managerMsg">m_msg.jsp</result>
+			<result name="headImgSave" type="redirect">h_save_done.jsp</result>
+			<result name="input">h_save_error.jsp</result>
+			<result name="error">h_save_error.jsp</result>
 			<!-- <result name="success" type="redirect">/manager-index.jsp</result>
 			<result name="login">/login.html</result>
 			<result name="managerLogin" type="redirect">/user-login.jsp</result>
@@ -26,6 +44,10 @@
 		</action>
 		
 		<action name="project_*" class="projectAction" method="{1}">
+			<interceptor-ref name="LoginInterceptor">
+				<param name="excludeMethods">login</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
 			<result name="projectSaveDone" type="redirect">p_save_done.jsp</result>
 			<result name="studentSave">s_save.jsp</result>
 			<result name="projectList">p_list.jsp</result>
@@ -38,6 +60,10 @@
 		</action>
 		
 		<action name="student_*" class="studentAction" method="{1}">
+			<interceptor-ref name="LoginInterceptor">
+				<param name="excludeMethods">login</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
 			<result name="studentSaveDone" type="redirect">s_save_done.jsp</result>
 			<result name="studentList">s_list.jsp</result>
 			<!-- <result name="saveSuccess" type="redirect">/student-save-success.jsp</result>

@@ -158,7 +158,7 @@
 				<a class="am-dropdown-toggle tpl-header-list-link"
 				href="javascript:;"> <span class="tpl-header-list-user-nick">${ manager.managerName }</span><span
 					class="tpl-header-list-user-ico"> <img
-						src="assets/img/userImg.png" style="margin: 15px"></span>
+						src="${ manager.headImgPath }" style="margin: 15px"></span>
 			</a>
 				<ul class="am-dropdown-content">
 					<li><a href="#"><span class="am-icon-bell-o"></span> 资料</a></li>
@@ -206,21 +206,18 @@
 					</a>
 						<ul class="tpl-left-nav-sub-menu">
 							<li><a
-								href="${ pageContext.request.contextPath }/project_list.action?operation=projectList">
+								href="${ pageContext.request.contextPath }/project_queryByPage.action?operation=projectList">
 									<i class="am-icon-angle-right"></i> <span>项目</span> <i
 									class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
 							</a> <a
-								href="${ pageContext.request.contextPath }/manager_list.action?operation=managerList">
+								href="${ pageContext.request.contextPath }/manager_queryByPage.action?operation=managerList">
 									<i class="am-icon-angle-right"></i> <span>管理员</span> <i
 									class="tpl-left-nav-content tpl-badge-success"> 18 </i>
 							</a> <a
-								href="${ pageContext.request.contextPath }/student_list.action?operation=studentList">
+								href="${ pageContext.request.contextPath }/student_queryByPage.action?operation=studentList">
 									<i class="am-icon-angle-right"></i> <span>成员</span> <i
 									class="tpl-left-nav-content tpl-badge-primary"> 5 </i>
-							</a> <a href="form-news-list.html"> <i
-									class="am-icon-angle-right"></i> <span>文字列表</span>
-
-							</a></li>
+							</a> </li>
 						</ul></li>
 
 					<li class="tpl-left-nav-item"><a href="javascript:;"
@@ -339,7 +336,7 @@
 									</thead>
 									<tbody>
 
-										<s:iterator value="projectList">
+										<s:iterator value="projectPage.pages">
 											<tr>
 												<td><input type="checkbox"></td>
 												<td><s:property value="projectId" /></td>
@@ -379,16 +376,34 @@
 									</tbody>
 								</table>
 								<div class="am-cf">
-
 									<div class="am-fr">
 										<ul class="am-pagination tpl-pagination">
-											<li class="am-disabled"><a href="#">«</a></li>
+											<!-- <li class="am-disabled"><a href="#">«</a></li>
 											<li class="am-active"><a href="#">1</a></li>
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
 											<li><a href="#">4</a></li>
-											<li><a href="#">5</a></li>
-											<li><a href="#">»</a></li>
+											<li><a href="#">5</a></li> -->
+											<s:if test="projectPage.pageNumber == 1">
+												<li class="am-disabled"><a href="${ pageContext.request.contextPath }/project_queryByPage.action?operation=projectList&pageNumber=${ projectPage.pageNumber - 1 }">«</a></li>
+											</s:if>
+											<s:else>
+												<li><a href="${ pageContext.request.contextPath }/project_queryByPage.action?operation=projectList&pageNumber=${ projectPage.pageNumber - 1 }">«</a></li>
+											</s:else>
+											<s:iterator value="pageNums" var="pageNum">
+												<s:if test="#pageNum == projectPage.pageNumber">
+													<li class="am-active"><a href="${ pageContext.request.contextPath }/project_queryByPage.action?operation=projectList&pageNumber=<s:property value="toString()"/>"><s:property value="toString()"/></a></li>
+												</s:if>
+												<s:else>
+													<li><a href="${ pageContext.request.contextPath }/project_queryByPage.action?operation=projectList&pageNumber=<s:property value="toString()"/>"><s:property value="toString()"/></a></li>
+												</s:else>
+											</s:iterator>
+											<s:if test="projectPage.pageNumber == projectPage.pageCount">
+												<li class="am-disabled"><a href="${ pageContext.request.contextPath }/project_queryByPage.action?operation=projectList&pageNumber=${ projectPage.pageNumber + 1 }">»</a></li>
+											</s:if>
+											<s:else>
+												<li><a href="${ pageContext.request.contextPath }/project_queryByPage.action?operation=projectList&pageNumber=${ projectPage.pageNumber + 1 }">»</a></li>
+											</s:else>
 										</ul>
 									</div>
 								</div>
@@ -419,6 +434,14 @@
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="assets/js/app.js"></script>
+	<script>
+		function to_page(page){
+			if(page){
+				$("#projectPage").val(page);
+			}
+			document.projectList.submit();
+		}
+	</script>
 </body>
 
 </html>

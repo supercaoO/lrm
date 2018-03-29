@@ -2,10 +2,15 @@ package com.supercaoO.service;
 
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.supercaoO.bean.Manager;
+import com.supercaoO.bean.Page;
+import com.supercaoO.bean.Project;
 import com.supercaoO.dao.ManagerDao;
 
 @Transactional
@@ -52,6 +57,34 @@ public class ManagerServiceImpl implements ManagerService {
 			manager = managerList.get(0);
 		}
 		return manager;
+	}
+
+	public Page<Manager> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria) {
+		return managerDao.queryByPage(pageNumber, pageSize, criteria);
+	}
+
+	public int delete(DetachedCriteria criteria) {
+		List<Manager> managerList = managerDao.query(criteria);
+		Manager manager = null;
+		if(managerList != null && managerList.size() > 0) {
+			manager = managerList.get(0);
+			managerDao.delete(manager);
+			return 1;
+		}
+		return -1;
+	}
+
+	public Manager headImgSave(Manager manager) {
+		Manager managerLogining = (Manager) ServletActionContext.getRequest().getSession().getAttribute("manager");
+		List<Manager> managerList = managerDao.query(DetachedCriteria.forClass(Manager.class).add(Restrictions.eq("managerId", managerLogining.getManagerId())));
+		Manager exitingmanager = null;
+		if(managerList != null && managerList.size() > 0) {
+			exitingmanager = managerList.get(0);
+			exitingmanager.setHeadImgPath(manager.getHeadImgPath());
+			managerDao.update(exitingmanager);
+			return exitingmanager;
+		}
+		return null;
 	}
 	
 	/*public Manager login(DetachedCriteria criteria) {

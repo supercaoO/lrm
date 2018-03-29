@@ -6,6 +6,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.supercaoO.bean.Manager;
+import com.supercaoO.bean.Page;
 import com.supercaoO.bean.Project;
 import com.supercaoO.bean.Student;
 import com.supercaoO.dao.ProjectDao;
@@ -37,6 +38,23 @@ public class StudentServiceImpl implements StudentService {
 
 	public List<Student> list(DetachedCriteria criteria) {
 		return studentDao.query(criteria);
+	}
+
+
+	public Page<Student> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria) {
+		return studentDao.queryByPage(pageNumber, pageSize, criteria);
+	}
+
+
+	public int delete(DetachedCriteria criteria) {
+		List<Student> studentList = studentDao.query(criteria);
+		Student student = null;
+		if(studentList != null && studentList.size() > 0) {
+			student = studentList.get(0);
+			studentDao.delete(student);
+			return 1;
+		}
+		return -1;
 	}
 	
 	/*private ProjectService projectService;

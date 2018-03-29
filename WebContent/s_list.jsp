@@ -158,7 +158,7 @@
 				<a class="am-dropdown-toggle tpl-header-list-link"
 				href="javascript:;"> <span class="tpl-header-list-user-nick">${ manager.managerName }</span><span
 					class="tpl-header-list-user-ico"> <img
-						src="assets/img/userImg.png" style="margin: 15px"></span>
+						src="${ manager.headImgPath }" style="margin: 15px"></span>
 			</a>
 				<ul class="am-dropdown-content">
 					<li><a href="#"><span class="am-icon-bell-o"></span> 资料</a></li>
@@ -206,21 +206,18 @@
 					</a>
 						<ul class="tpl-left-nav-sub-menu">
 							<li><a
-								href="${ pageContext.request.contextPath }/project_list.action?operation=projectList">
+								href="${ pageContext.request.contextPath }/project_queryByPage.action?operation=projectList">
 									<i class="am-icon-angle-right"></i> <span>项目</span> <i
 									class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
 							</a> <a
-								href="${ pageContext.request.contextPath }/manager_list.action?operation=managerList">
+								href="${ pageContext.request.contextPath }/manager_queryByPage.action?operation=managerList">
 									<i class="am-icon-angle-right"></i> <span>管理员</span> <i
 									class="tpl-left-nav-content tpl-badge-success"> 18 </i>
 							</a> <a
-								href="${ pageContext.request.contextPath }/student_list.action?operation=studentList">
+								href="${ pageContext.request.contextPath }/student_queryByPage.action?operation=studentList">
 									<i class="am-icon-angle-right"></i> <span>成员</span> <i
 									class="tpl-left-nav-content tpl-badge-primary"> 5 </i>
-							</a> <a href="form-news-list.html"> <i
-									class="am-icon-angle-right"></i> <span>文字列表</span>
-
-							</a></li>
+							</a> </li>
 						</ul></li>
 
 					<li class="tpl-left-nav-item"><a href="javascript:;"
@@ -258,9 +255,7 @@
 			<ol class="am-breadcrumb">
 				<li><a href="#" class="am-icon-home">首页</a></li>
 				<li><a href="#">查询</a></li>
-				<s:iterator value="path">
-					<li><a href="#"><s:property value="toString()" /></a></li>
-				</s:iterator>
+				<li><a href="#">成员</a></li>
 			</ol>
 			<div class="tpl-portlet-components">
 				<div class="portlet-title">
@@ -340,7 +335,7 @@
 									</thead>
 									<tbody>
 
-										<s:iterator value="studentList">
+										<s:iterator value="studentPage.pages">
 											<tr>
 												<td><input type="checkbox"></td>
 												<td><s:property value="studentId" /></td>
@@ -351,18 +346,13 @@
 												<td>
 													<div class="am-btn-toolbar">
 														<div class="am-btn-group am-btn-group-xs">
-															<button
-																class="am-btn am-btn-default am-btn-xs am-text-secondary">
-																<span class="am-icon-pencil-square-o"></span> 编辑
-															</button>
-															<button
-																class="am-btn am-btn-default am-btn-xs am-hide-sm-only">
-																<span class="am-icon-copy"></span> 复制
-															</button>
-															<button
-																class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-																<span class="am-icon-trash-o"></span> 删除
-															</button>
+															<a
+																href="${ pageContext.request.contextPath }/student_delete.action?studentId=${ studentId }">
+																<button type="button"
+																	class="am-btn am-btn-default am-btn-xs am-text-secondary">
+																	<span class="am-icon-pencil-square-o"></span> 删除
+																</button>
+															</a>
 														</div>
 													</div>
 												</td>
@@ -374,13 +364,33 @@
 
 									<div class="am-fr">
 										<ul class="am-pagination tpl-pagination">
-											<li class="am-disabled"><a href="#">«</a></li>
+											<!-- <li class="am-disabled"><a href="#">«</a></li>
 											<li class="am-active"><a href="#">1</a></li>
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
 											<li><a href="#">4</a></li>
 											<li><a href="#">5</a></li>
-											<li><a href="#">»</a></li>
+											<li><a href="#">»</a></li> -->
+											<s:if test="studentPage.pageNumber == 1">
+												<li class="am-disabled"><a href="${ pageContext.request.contextPath }/student_queryByPage.action?operation=studentList&pageNumber=${ studentPage.pageNumber - 1 }">«</a></li>
+											</s:if>
+											<s:else>
+												<li><a href="${ pageContext.request.contextPath }/student_queryByPage.action?operation=studentList&pageNumber=${ studentPage.pageNumber - 1 }">«</a></li>
+											</s:else>
+											<s:iterator value="pageNums" var="pageNum">
+												<s:if test="#pageNum == studentPage.pageNumber">
+													<li class="am-active"><a href="${ pageContext.request.contextPath }/student_queryByPage.action?operation=studentList&pageNumber=<s:property value="toString()"/>"><s:property value="toString()"/></a></li>
+												</s:if>
+												<s:else>
+													<li><a href="${ pageContext.request.contextPath }/student_queryByPage.action?operation=studentList&pageNumber=<s:property value="toString()"/>"><s:property value="toString()"/></a></li>
+												</s:else>
+											</s:iterator>
+											<s:if test="studentPage.pageNumber == studentPage.pageCount">
+												<li class="am-disabled"><a href="${ pageContext.request.contextPath }/student_queryByPage.action?operation=studentList&pageNumber=${ studentPage.pageNumber + 1 }">»</a></li>
+											</s:if>
+											<s:else>
+												<li><a href="${ pageContext.request.contextPath }/student_queryByPage.action?operation=studentList&pageNumber=${ studentPage.pageNumber + 1 }">»</a></li>
+											</s:else>
 										</ul>
 									</div>
 								</div>

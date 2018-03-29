@@ -255,13 +255,13 @@
 		<div class="tpl-content-wrapper">
 			<ol class="am-breadcrumb">
 				<li><a href="#" class="am-icon-home">首页</a></li>
-				<li><a href="#">添加</a></li>
-				<li><a href="#">管理员</a></li>
+				<li><a href="#">头像</a></li>
+				<li><a href="#">修改</a></li>
 			</ol>
 			<div class="tpl-portlet-components">
 				<div class="portlet-title">
 					<div class="caption font-green bold">
-						<span class="am-icon-code"></span> 添加管理员
+						<span class="am-icon-code"></span> 修改头像(请确保文件格式为jpg或png，且小于10M)
 					</div>
 					<div class="tpl-portlet-input tpl-fz-ml">
 						<div class="portlet-input input-small input-inline">
@@ -281,20 +281,21 @@
 
 						<div class="am-u-sm-12 am-u-md-9">
 							<form class="am-form am-form-horizontal"
-								action="${ pageContext.request.contextPath }/manager_save.action"
-								method="post">
+								action="${ pageContext.request.contextPath }/manager_headImgSave.action"
+								method="post"
+								enctype="multipart/form-data">
 								<div class="am-form-group">
-									<label for="user-name" class="am-u-sm-3 am-form-label">管理员姓名
-										/ ManagerName</label>
 									<div class="am-u-sm-9">
-										<input type="text" id="user-name" name="managerName"
-											placeholder="请输入姓名 / ManagerName">
+										<input type="file" name="headImg" id=browsefile style="visibility:hidden" onchange=filepath.value=this.value>
+										<label for="user-name" class="am-u-sm-3 am-form-label">头像 / HeadImage</label>
+										<input type="button" id=filebutton value="浏览本地图片" onclick="browsefile.click()">
+										<input type="textfield" id=filepath>
 									</div>
 								</div>
-
+								
 								<div class="am-form-group">
 									<div class="am-u-sm-9 am-u-sm-push-3">
-										<button type="submit" class="am-btn am-btn-primary">确认添加</button>
+										<button type="submit" class="am-btn am-btn-primary">确认修改</button>
 									</div>
 								</div>
 							</form>

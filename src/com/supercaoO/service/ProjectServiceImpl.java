@@ -7,6 +7,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.supercaoO.bean.Manager;
+import com.supercaoO.bean.Page;
 import com.supercaoO.bean.Project;
 import com.supercaoO.dao.ManagerDao;
 import com.supercaoO.dao.ProjectDao;
@@ -71,6 +72,10 @@ public class ProjectServiceImpl implements ProjectService {
 			return projectList.get(0);
 		}
 		return null;
+	}
+
+	public Page<Project> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria) {
+		return projectDao.queryByPage(pageNumber, pageSize, criteria);
 	}
 	
 

@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.criterion.DetachedCriteria;
 
 import com.supercaoO.bean.Manager;
+import com.supercaoO.bean.Page;
 import com.supercaoO.bean.Project;
 
 public interface ProjectDao {
@@ -44,4 +45,6 @@ public interface ProjectDao {
 	 * @param criteria query criteria
 	 */
 	List<Project> query(DetachedCriteria criteria);
+
+	Page<Project> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria);
 }

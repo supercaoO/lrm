@@ -3,9 +3,11 @@ package com.supercaoO.dao;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import com.supercaoO.bean.Manager;
+import com.supercaoO.bean.Page;
 import com.supercaoO.bean.Project;
 
 public class ProjectDaoImpl extends HibernateDaoSupport implements ProjectDao {
@@ -54,6 +56,33 @@ public class ProjectDaoImpl extends HibernateDaoSupport implements ProjectDao {
 	 */
 	public List<Project> query(DetachedCriteria criteria){
 		return (List<Project>) this.getHibernateTemplate().findByCriteria(criteria);
+	}
+
+	/**
+	 * To query Project by Page and criteria
+	 * @return query result
+	 * @param pageNumber the page number
+	 * @param pageSize the size of page
+	 * @param criteria query criteria
+	 */
+	public Page<Project> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria) {
+		Page<Project> projectPage = new Page<Project>();
+		projectPage.setPageNumber(pageNumber);
+		projectPage.setPageSize(pageSize);
+		
+		//查询数据总条数
+		criteria.setProjection(Projections.rowCount());
+		List<Number> numList = (List<Number>) this.getHibernateTemplate().findByCriteria(criteria);
+		if(numList != null && numList.size() > 0){
+			int total = numList.get(0).intValue();
+			projectPage.setTotal(total);
+		}
+		criteria.setProjection(null);
+		
+		//分页查询
+		List<Project> projectList = (List<Project>) this.getHibernateTemplate().findByCriteria(criteria, (pageNumber - 1) * pageSize, pageSize);
+		projectPage.setPages(projectList);
+		return projectPage;
 	}
 
 	/*public void save(Project project, Manager manager) {

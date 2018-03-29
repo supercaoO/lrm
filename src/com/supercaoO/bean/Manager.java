@@ -8,6 +8,7 @@ public class Manager {
 	private String managerName;
 	private String managerPassword;
 	private String managerStatus;
+	private String headImgPath;
 	private Set<Project> projects = new HashSet<Project>();
 	
 	public Integer getManagerId() {
@@ -30,6 +31,12 @@ public class Manager {
 	}
 	public String getManagerStatus() {
 		return managerStatus;
+	}
+	public String getHeadImgPath() {
+		return headImgPath;
+	}
+	public void setHeadImgPath(String headImgPath) {
+		this.headImgPath = headImgPath;
 	}
 	public void setManagerStatus(String managerStatus) {
 		this.managerStatus = managerStatus;

@@ -1,5 +1,6 @@
 package com.supercaoO.web;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.util.ValueStack;
 import com.supercaoO.bean.Manager;
+import com.supercaoO.bean.Page;
 import com.supercaoO.bean.Project;
 import com.supercaoO.bean.Student;
 import com.supercaoO.service.StudentService;
@@ -28,6 +30,19 @@ public class StudentAction extends ActionSupport implements ModelDriven<Student>
 	private Student student = new Student();
 	public Student getModel() {
 		return student;
+	}
+	
+	private Integer pageNumber = 1;
+	public void setPageNumber(Integer pageNumber) {
+		if(pageNumber == null){
+			pageNumber = 1;
+		}
+		this.pageNumber = pageNumber;
+	}
+	
+	private Integer pageSize = 10;
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
 	}
 	
 	public String save() {
@@ -49,6 +64,34 @@ public class StudentAction extends ActionSupport implements ModelDriven<Student>
 		return ServletActionContext.getRequest().getParameter("operation");
 	}
 	
+	public String queryByPage() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Student.class);
+		criteria.add(Restrictions.eq("studentStatus", "1"));
+		Page<Student> studentPage = studentService.queryByPage(pageNumber, pageSize, criteria);
+		ValueStack vs = ActionContext.getContext().getValueStack();
+		vs.set("studentPage", studentPage);
+		int[] pageNums = new int[studentPage.getPageCount()];
+		for(int i = 0; i < pageNums.length; i++) {
+			pageNums[i] = i + 1;
+		}
+		vs.set("pageNums", pageNums);
+		return ServletActionContext.getRequest().getParameter("operation");
+	}
+	
+	public String delete() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Student.class);
+		String studentId = ServletActionContext.getRequest().getParameter("studentId");
+		try {
+			studentId = new String(studentId.getBytes("iso-8859-1"), "utf-8");
+			criteria.add(Restrictions.eq("studentId", Integer.valueOf(studentId)));
+			studentService.delete(criteria);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		queryByPage();
+		return "studentList";
+	}
+		
 	/*public String login() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Student.class);
 		if(student != null) {

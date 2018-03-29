@@ -159,7 +159,7 @@
 				<a class="am-dropdown-toggle tpl-header-list-link"
 				href="javascript:;"> <span class="tpl-header-list-user-nick">${ manager.managerName }</span><span
 					class="tpl-header-list-user-ico"> <img
-						src="assets/img/userImg.png" style="margin: 15px"></span>
+						src="${ manager.headImgPath }" style="margin: 15px"></span>
 			</a>
 				<ul class="am-dropdown-content">
 					<li><a href="#"><span class="am-icon-bell-o"></span> 资料</a></li>
@@ -207,21 +207,18 @@
 					</a>
 						<ul class="tpl-left-nav-sub-menu">
 							<li><a
-								href="${ pageContext.request.contextPath }/project_list.action?operation=projectList">
+								href="${ pageContext.request.contextPath }/project_queryByPage.action?operation=projectList">
 									<i class="am-icon-angle-right"></i> <span>项目</span> <i
 									class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
 							</a> <a
-								href="${ pageContext.request.contextPath }/manager_list.action?operation=managerList">
+								href="${ pageContext.request.contextPath }/manager_queryByPage.action?operation=managerList">
 									<i class="am-icon-angle-right"></i> <span>管理员</span> <i
 									class="tpl-left-nav-content tpl-badge-success"> 18 </i>
 							</a> <a
-								href="${ pageContext.request.contextPath }/student_list.action?operation=studentList">
+								href="${ pageContext.request.contextPath }/student_queryByPage.action?operation=studentList">
 									<i class="am-icon-angle-right"></i> <span>成员</span> <i
 									class="tpl-left-nav-content tpl-badge-primary"> 5 </i>
-							</a> <a href="form-news-list.html"> <i
-									class="am-icon-angle-right"></i> <span>文字列表</span>
-
-							</a></li>
+							</a> </li>
 						</ul></li>
 
 					<li class="tpl-left-nav-item"><a href="javascript:;"
@@ -286,7 +283,7 @@
 
 						<div class="am-u-sm-12 am-u-md-9">
 							<form class="am-form am-form-horizontal"
-								action="manager-save.jsp" method="post">
+								action="m_save.jsp" method="post">
 								<div class="am-form-group">
 									<div class="am-u-sm-9 am-u-sm-push-3">
 										<button type="submit" class="am-btn am-btn-primary">继续添加</button>

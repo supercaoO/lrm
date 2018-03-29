@@ -2,6 +2,7 @@ package com.supercaoO.web;
 
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.util.ValueStack;
 import com.supercaoO.bean.Manager;
+import com.supercaoO.bean.Page;
 import com.supercaoO.bean.Project;
 import com.supercaoO.service.ProjectService;
 
@@ -35,6 +37,19 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 	private Project project = new Project();
 	public Project getModel() {
 		return project;
+	}
+	
+	private Integer pageNumber = 1;
+	public void setPageNumber(Integer pageNumber) {
+		if(pageNumber == null){
+			pageNumber = 1;
+		}
+		this.pageNumber = pageNumber;
+	}
+	
+	private Integer pageSize = 10;
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
 	}
 	
 	public String save() {
@@ -91,7 +106,7 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		list();
+		queryByPage();
 		return "projectList";
 	}
 	
@@ -103,6 +118,20 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 		ValueStack valueStack = ActionContext.getContext().getValueStack();
 		valueStack.push(project);
 		return "projectMsg";
+	}
+	
+	public String queryByPage() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
+		criteria.add(Restrictions.eq("projectStatus", "1"));
+		Page<Project> projectPage = projectService.queryByPage(pageNumber, pageSize, criteria);
+		ValueStack vs = ActionContext.getContext().getValueStack();
+		vs.set("projectPage", projectPage);
+		int[] pageNums = new int[projectPage.getPageCount()];
+		for(int i = 0; i < pageNums.length; i++) {
+			pageNums[i] = i + 1;
+		}
+		vs.set("pageNums", pageNums);
+		return ServletActionContext.getRequest().getParameter("operation");
 	}
 	
 	/*public String save() {
