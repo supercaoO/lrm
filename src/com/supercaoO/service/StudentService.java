@@ -16,13 +16,4 @@ public interface StudentService {
 	Page<Student> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria);
 
 	int delete(DetachedCriteria criteria);
-
-	/*void save(Student student, String projectId);
-
-	Student login(DetachedCriteria criteria);
-
-	int reqwd(DetachedCriteria criteria, String newStudentPassword);
-
-	List<Student> query();*/
-
 }

@@ -77,28 +77,4 @@ public class ProjectServiceImpl implements ProjectService {
 	public Page<Project> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria) {
 		return projectDao.queryByPage(pageNumber, pageSize, criteria);
 	}
-	
-
-
-	/*public void save(Project project, String managerId) {
-		Manager manager = managerService.getManagerById(managerId);
-		projectDao.save(project, manager);
-	}
-
-
-	public List<Project> query(DetachedCriteria criteria) {
-		return projectDao.query(criteria);
-	}
-
-
-	public Project getProjectById(String projectId) {
-		return projectDao.getManagerById(projectId);
-	}
-
-	public void update(Project project, DetachedCriteria criteria, String managerId) {
-		Project p = projectDao.update(project, criteria, managerId);
-		Manager manager = managerService.getManagerById(managerId);
-		p.setManager(manager);
-	}*/
-
 }

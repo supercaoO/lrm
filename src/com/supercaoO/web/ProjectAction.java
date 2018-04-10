@@ -2,7 +2,6 @@ package com.supercaoO.web;
 
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -133,55 +132,4 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 		vs.set("pageNums", pageNums);
 		return ServletActionContext.getRequest().getParameter("operation");
 	}
-	
-	/*public String save() {
-		String managerId = ServletActionContext.getRequest().getParameter("managerId");
-		project.setProjectStatus("1");
-		String currentDate = dateFormat.format(new Date(System.currentTimeMillis()));
-		project.setLastCommitDate(currentDate);
-		projectService.save(project, managerId);
-		return "saveSuccess";
-	}
-	
-	public String query() {
-		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
-		criteria.add(Restrictions.eq("projectStatus", "1"));
-		List<Project> projectList = projectService.query(criteria);
-		ValueStack valueStack = ActionContext.getContext().getValueStack();
-		valueStack.set("projectList", projectList);
-		return "queryDone";
-	}
-	
-	public String queryStudentsByProject() {
-		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
-		String projectName = ServletActionContext.getRequest().getParameter("projectName");
-		try {
-			projectName = new String(projectName.getBytes("iso-8859-1"), "utf-8");
-			criteria.add(Restrictions.eq("projectName", projectName));
-			List<Project> projectList = projectService.query(criteria);
-			ValueStack valueStack = ActionContext.getContext().getValueStack();
-			valueStack.set("path", new String[] { "项目", projectName });
-			valueStack.set("studentList", projectList.get(0).getStudents());
-			return "queryStudentsByProjectDone";
-		} catch (UnsupportedEncodingException e) {
-			return NONE;
-		}
-	}
-	
-	public String update() {
-		String currentDate = dateFormat.format(new Date(System.currentTimeMillis()));
-		String oldProjectName = ServletActionContext.getRequest().getParameter("oldProjectName");
-		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class).add(Restrictions.eq("projectName", oldProjectName));
-		project.setLastCommitDate(currentDate);
-		String managerId = ServletActionContext.getRequest().getParameter("managerId");
-		projectService.update(project, criteria, managerId);
-		return list();
-	}
-	
-
-	public String list() {
-		query();
-		return "listDone";
-	}*/
-
 }

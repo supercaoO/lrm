@@ -25,7 +25,6 @@
 
 <body data-type="index">
 
-
 	<header class="am-topbar am-topbar-inverse admin-header">
 	<div class="am-topbar-brand">
 		<a href="https://www.jnu.edu.cn/" class="tpl-logo"> <img
@@ -49,58 +48,50 @@
 			<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
 				<a class="am-dropdown-toggle tpl-header-list-link"
 				href="javascript:;"> <span class="am-icon-bell-o"></span> 提醒 <span
-					class="am-badge tpl-badge-success am-round">5</span></span>
+					class="am-badge tpl-badge-success am-round">2</span></span>
 			</a>
 				<ul class="am-dropdown-content tpl-dropdown-content">
 					<li class="tpl-dropdown-content-external">
 						<h3>
-							你有 <span class="tpl-color-success">5</span> 条提醒
+							你有 <span class="tpl-color-success">2</span> 条会议提醒
 						</h3>
 						<a href="###">全部</a>
 					</li>
 					<li class="tpl-dropdown-list-bdbc"><a href="#"
-						class="tpl-dropdown-list-fl"><span
-							class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-success"></span>
-							【预览模块】移动端 查看时 手机、电脑框隐藏。</a> <span class="tpl-dropdown-list-fr">3小时前</span>
+						class="tpl-dropdown-list-fl">
+							基于图片的消防通道安全隐患识别</a> <span class="tpl-dropdown-list-fr">13:00</span>
 					</li>
 					<li class="tpl-dropdown-list-bdbc"><a href="#"
-						class="tpl-dropdown-list-fl"><span
-							class="am-icon-btn am-icon-check tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
-							移动端，导航条下边距处理</a> <span class="tpl-dropdown-list-fr">15分钟前</span></li>
-					<li class="tpl-dropdown-list-bdbc"><a href="#"
-						class="tpl-dropdown-list-fl"><span
-							class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span>
-							追加统计代码</a> <span class="tpl-dropdown-list-fr">2天前</span></li>
+						class="tpl-dropdown-list-fl"></span>
+							基于OpenCV的轨道异物检测与识别</a> <span class="tpl-dropdown-list-fr">14:15</span></li>
 				</ul>
 			</li>
 			<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
 				<a class="am-dropdown-toggle tpl-header-list-link"
 				href="javascript:;"> <span class="am-icon-comment-o"></span> 消息
-					<span class="am-badge tpl-badge-danger am-round">9</span></span>
+					<span class="am-badge tpl-badge-danger am-round">149</span></span>
 			</a>
 				<ul class="am-dropdown-content tpl-dropdown-content">
 					<li class="tpl-dropdown-content-external">
 						<h3>
-							你有 <span class="tpl-color-danger">9</span> 条新消息
+							你有 <span class="tpl-color-danger">149</span> 条新消息
 						</h3>
 						<a href="###">全部</a>
 					</li>
 					<li><a href="#" class="tpl-dropdown-content-message"> <span
 							class="tpl-dropdown-content-photo"> <img
-								src="assets/img/userImg.png" alt="">
+								src="assets/img/user01.png" alt="">
 						</span> <span class="tpl-dropdown-content-subject"> <span
-								class="tpl-dropdown-content-from"> ${ manager.managerName }
+								class="tpl-dropdown-content-from"> 查宽
 							</span> <span class="tpl-dropdown-content-time">10分钟前 </span>
-						</span> <span class="tpl-dropdown-content-font"> Amaze UI 的诞生，依托于
-								GitHub 及其他技术社区上一些优秀的资源；Amaze UI 的成长，则离不开用户的支持。 </span>
+						</span> <span class="tpl-dropdown-content-font"> 下午的会议是否可以请假？ </span>
 					</a> <a href="#" class="tpl-dropdown-content-message"> <span
 							class="tpl-dropdown-content-photo"> <img
 								src="assets/img/user03.png" alt="">
 						</span> <span class="tpl-dropdown-content-subject"> <span
-								class="tpl-dropdown-content-from"> Steam </span> <span
+								class="tpl-dropdown-content-from"> 杨慧 </span> <span
 								class="tpl-dropdown-content-time">18分钟前</span>
-						</span> <span class="tpl-dropdown-content-font"> 为了能最准确的传达所描述的问题，
-								建议你在反馈时附上演示，方便我们理解。 </span>
+						</span> <span class="tpl-dropdown-content-font"> 本月进度报告已经发送，请查收 </span>
 					</a></li>
 
 				</ul>
@@ -108,19 +99,19 @@
 			<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
 				<a class="am-dropdown-toggle tpl-header-list-link"
 				href="javascript:;"> <span class="am-icon-calendar"></span> 进度 <span
-					class="am-badge tpl-badge-primary am-round">4</span></span>
+					class="am-badge tpl-badge-primary am-round">3</span></span>
 			</a>
 				<ul class="am-dropdown-content tpl-dropdown-content">
 					<li class="tpl-dropdown-content-external">
 						<h3>
-							你有 <span class="tpl-color-primary">4</span> 个任务进度
+							你有 <span class="tpl-color-primary">3</span> 个项目进度
 						</h3>
 						<a href="###">全部</a>
 					</li>
 					<li><a href="javascript:;"
 						class="tpl-dropdown-content-progress"> <span class="task">
-								<span class="desc">Amaze UI 用户中心 v1.2 </span> <span
-								class="percent">45%</span>
+								<span class="desc">Android示波器</span> <span
+								class="percent">+5%</span>
 						</span> <span class="progress">
 								<div class="am-progress tpl-progress am-progress-striped">
 									<div class="am-progress-bar am-progress-bar-success"
@@ -130,7 +121,7 @@
 					</a></li>
 					<li><a href="javascript:;"
 						class="tpl-dropdown-content-progress"> <span class="task">
-								<span class="desc">新闻内容页 </span> <span class="percent">30%</span>
+								<span class="desc">图像隐写</span> <span class="percent">+10%</span>
 						</span> <span class="progress">
 								<div class="am-progress tpl-progress am-progress-striped">
 									<div class="am-progress-bar am-progress-bar-secondary"
@@ -140,7 +131,7 @@
 					</a></li>
 					<li><a href="javascript:;"
 						class="tpl-dropdown-content-progress"> <span class="task">
-								<span class="desc">管理中心 </span> <span class="percent">60%</span>
+								<span class="desc">基于小波变换的3D压缩研究</span> <span class="percent">+6%</span>
 						</span> <span class="progress">
 								<div class="am-progress tpl-progress am-progress-striped">
 									<div class="am-progress-bar am-progress-bar-warning"
@@ -193,11 +184,6 @@
 				<ul class="tpl-left-nav-menu">
 					<li class="tpl-left-nav-item"><a href="m_index.jsp"
 						class="nav-link active"> <i class="am-icon-home"></i> <span>首页</span>
-					</a></li>
-					<li class="tpl-left-nav-item"><a href="chart.html"
-						class="nav-link tpl-left-nav-link-list"> <i
-							class="am-icon-bar-chart"></i> <span>数据表</span> <i
-							class="tpl-left-nav-content tpl-badge-danger"> 12 </i>
 					</a></li>
 
 					<li class="tpl-left-nav-item"><a href="javascript:;"
@@ -266,7 +252,7 @@
 							<i class="am-icon-comments-o"></i>
 						</div>
 						<div class="details">
-							<div class="number">1349</div>
+							<div class="number">149</div>
 							<div class="desc">新消息</div>
 						</div>
 						<a class="more" href="#"> 查看更多 <i
@@ -280,8 +266,8 @@
 							<i class="am-icon-bar-chart-o"></i>
 						</div>
 						<div class="details">
-							<div class="number">5</div>
-							<div class="desc">项目</div>
+							<div class="number">15</div>
+							<div class="desc">管理项目数</div>
 						</div>
 						<a class="more" href="${ pageContext.request.contextPath }/project_queryByPage.action?operation=projectList"> 查看更多 <i
 							class="m-icon-swapright m-icon-white"></i>
@@ -294,7 +280,7 @@
 							<i class="am-icon-apple"></i>
 						</div>
 						<div class="details">
-							<div class="number">653</div>
+							<div class="number">3</div>
 							<div class="desc">新项目进度</div>
 						</div>
 						<a class="more" href="#"> 查看更多 <i
@@ -308,8 +294,8 @@
 							<i class="am-icon-android"></i>
 						</div>
 						<div class="details">
-							<div class="number">786</div>
-							<div class="desc">新增项目</div>
+							<div class="number">4</div>
+							<div class="desc">本月新增项目</div>
 						</div>
 						<a class="more" href="#"> 查看更多 <i
 							class="m-icon-swapright m-icon-white"></i>
@@ -326,13 +312,13 @@
 					<div class="tpl-portlet">
 						<div class="tpl-portlet-title">
 							<div class="tpl-caption font-green ">
-								<i class="am-icon-cloud-download"></i> <span> Cloud 数据统计</span>
+								<i class="am-icon-cloud-download"></i> <span> Lrm 数据统计</span>
 							</div>
 							<div class="actions">
 								<ul class="actions-btn">
-									<li class="red-on">昨天</li>
-									<li class="green">前天</li>
-									<li class="blue">本周</li>
+									<li class="red-on">本周</li>
+									<li class="green">本月</li>
+									<li class="blue">本学期</li>
 								</ul>
 							</div>
 						</div>
@@ -345,7 +331,7 @@
 					<div class="tpl-portlet">
 						<div class="tpl-portlet-title">
 							<div class="tpl-caption font-red ">
-								<i class="am-icon-bar-chart"></i> <span> Cloud 研究所成员</span>
+								<i class="am-icon-bar-chart"></i> <span> Lrm 研究所成员</span>
 							</div>
 							<div class="actions">
 								<ul class="actions-btn">
@@ -359,11 +345,11 @@
 							<div class="number-stats">
 								<div class="stat-number am-fl am-u-md-6">
 									<div class="title am-text-right">成员总数</div>
-									<div class="number am-text-right am-text-warning">61</div>
+									<div class="number am-text-right am-text-warning">126</div>
 								</div>
 								<div class="stat-number am-fr am-u-md-6">
 									<div class="title">项目总数</div>
-									<div class="number am-text-success">24</div>
+									<div class="number am-text-success">42</div>
 								</div>
 
 							</div>
@@ -374,57 +360,57 @@
 										<th>姓名</th>
 										<th>学号</th>
 										<th>项目数</th>
-										<th>效率</th>
+										<th>综合进度</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td><img src="assets/img/user01.png" alt=""
-											class="user-pic"> <a class="user-name" href="###">张三</a>
+											class="user-pic"> <a class="user-name" href="###">查宽</a>
 										</td>
-										<td>2016052361</td>
+										<td>2016051347</td>
 										<td>2</td>
-										<td class="font-green bold">26%</td>
+										<td class="font-green bold">48%</td>
 									</tr>
 									<tr>
 										<td><img src="assets/img/user02.png" alt=""
-											class="user-pic"> <a class="user-name" href="###">李四</a>
+											class="user-pic"> <a class="user-name" href="###">贺鹏飞</a>
 										</td>
-										<td>2016052362</td>
+										<td>2016051362</td>
 										<td>1</td>
-										<td class="font-green bold">32%</td>
+										<td class="font-green bold">75%</td>
 									</tr>
 									<tr>
 										<td><img src="assets/img/user03.png" alt=""
-											class="user-pic"> <a class="user-name" href="###">王五</a>
+											class="user-pic"> <a class="user-name" href="###">吴俊逸</a>
 										</td>
-										<td>2016052363</td>
+										<td>2016053359</td>
 										<td>1</td>
 										<td class="font-green bold">51%</td>
 									</tr>
 									<tr>
 										<td><img src="assets/img/user04.png" alt=""
-											class="user-pic"> <a class="user-name" href="###">孙六</a>
+											class="user-pic"> <a class="user-name" href="###">叶敬南</a>
 										</td>
-										<td>2016052364</td>
+										<td>2016052375</td>
 										<td>2</td>
 										<td class="font-green bold">73%</td>
 									</tr>
 									<tr>
 										<td><img src="assets/img/user05.png" alt=""
-											class="user-pic"> <a class="user-name" href="###">陈七</a>
+											class="user-pic"> <a class="user-name" href="###">黄永杰</a>
 										</td>
 										<td>2016052365</td>
 										<td>3</td>
-										<td class="font-green bold">12%</td>
+										<td class="font-green bold">40%</td>
 									</tr>
 									<tr>
 										<td><img src="assets/img/user06.png" alt=""
-											class="user-pic"> <a class="user-name" href="###">黄八</a>
+											class="user-pic"> <a class="user-name" href="###">牛博雅</a>
 										</td>
-										<td>2016052366</td>
+										<td>2016052301</td>
 										<td>1</td>
-										<td class="font-green bold">10%</td>
+										<td class="font-green bold">76%</td>
 									</tr>
 								</tbody>
 							</table>
@@ -440,7 +426,7 @@
 					<div class="tpl-portlet">
 						<div class="tpl-portlet-title">
 							<div class="tpl-caption font-green ">
-								<span>会议安排</span> <span class="caption-helper">16 件</span>
+								<span>会议安排</span> <span class="caption-helper">9 件</span>
 							</div>
 							<div class="tpl-portlet-input">
 								<div class="portlet-input input-small input-inline">
@@ -460,8 +446,11 @@
 												type="checkbox" class="liChild" value="2" name="test">
 										</div>
 										<div class="task-title">
-											<span class="task-title-sp"> Amaze UI Icon 组件目前使用了
-												Font Awesome </span> <span class="label label-sm label-success">技术部</span>
+											<span class="task-title-sp">
+												基于图片的消防通道安全隐患识别
+											</span>
+											<span class="label label-sm label-success">13:00-13:20</span>
+											<span class="label label-sm label-danger">线上</span>
 											<span class="task-bell"> <i class="am-icon-bell-o"></i>
 											</span>
 										</div>
@@ -496,10 +485,11 @@
 												type="checkbox" class="liChild" value="2" name="test">
 										</div>
 										<div class="task-title">
-											<span class="task-title-sp"> 在 data-am-dropdown
-												里指定要适应到的元素，下拉内容的宽度会设置为该元素的宽度。当然可以直接在 CSS 里设置下拉内容的宽度。 </span> <span
-												class="label label-sm label-danger">运营</span>
-
+											<span class="task-title-sp">
+												基于OpenCV实现对可见火点特征点的识别
+											</span>
+											<span class="label label-sm label-success">13:25-13:45</span>
+											<span class="label label-sm label-danger">线上</span>
 										</div>
 										<div class="task-config">
 											<div class="am-dropdown tpl-task-list-dropdown"
@@ -532,10 +522,11 @@
 												type="checkbox" class="liChild" value="2" name="test">
 										</div>
 										<div class="task-title">
-											<span class="task-title-sp"> 使用 LESS： 通过设置变量
-												@fa-font-path 覆盖默认的值，如 @fa-font-path: "../fonts";。这个变量定义在
-												icon.less 里。 </span> <span class="label label-sm label-warning">市场部</span>
-
+											<span class="task-title-sp">
+												基于深度学习的可见火点自动识别
+											</span>
+											<span class="label label-sm label-success">13:50-14:10</span>
+											<span class="label label-sm label-danger">线上</span>
 										</div>
 										<div class="task-config">
 											<div class="am-dropdown tpl-task-list-dropdown"
@@ -568,10 +559,10 @@
 												type="checkbox" class="liChild" value="2" name="test">
 										</div>
 										<div class="task-title">
-											<span class="task-title-sp"> 添加 .am-btn-group-justify
-												class 让按钮组里的按钮平均分布，填满容器宽度。 </span> <span
-												class="label label-sm label-default">已废弃</span>
-
+											<span class="task-title-sp">
+												基于网页的非在线信息采集系统
+											</span>
+											<span class="label label-sm label-default">已取消</span>
 										</div>
 										<div class="task-config">
 											<div class="am-dropdown tpl-task-list-dropdown"
@@ -592,8 +583,6 @@
 															class="am-icon-trash-o"></i> 删除
 													</a></li>
 												</ul>
-
-
 											</div>
 										</div>
 									</li>
@@ -604,10 +593,12 @@
 												type="checkbox" class="liChild" value="2" name="test">
 										</div>
 										<div class="task-title">
-											<span class="task-title-sp"> 按照示例组织好 HTML 结构（不加
-												data-am-dropdown 属性），然后通过 JS 来调用。 </span> <span
-												class="label label-sm label-success">技术部</span> <span
-												class="task-bell"> <i class="am-icon-bell-o"></i>
+											<span class="task-title-sp">
+												基于OpenCV的轨道异物检测与识别
+											</span>
+											<span class="label label-sm label-success">14:15-14:35</span>
+											<span class="label label-sm label-danger">线上</span>
+											<span class="task-bell"> <i class="am-icon-bell-o"></i>
 											</span>
 										</div>
 										<div class="task-config">
@@ -634,17 +625,17 @@
 											</div>
 										</div>
 									</li>
-
-
+									
 									<li>
 										<div class="task-checkbox">
 											<input type="hidden" value="1" name="test"> <input
 												type="checkbox" class="liChild" value="2" name="test">
 										</div>
 										<div class="task-title">
-											<span class="task-title-sp"> 添加 .am-btn-group-justify
-												class 让按钮组里的按钮平均分布，填满容器宽度。 </span> <span
-												class="label label-sm label-default">已废弃</span>
+											<span class="task-title-sp">
+												基于触摸屏的身份认证APP
+											</span>
+											<span class="label label-sm label-default">已取消</span>
 
 										</div>
 										<div class="task-config">
@@ -666,8 +657,6 @@
 															class="am-icon-trash-o"></i> 删除
 													</a></li>
 												</ul>
-
-
 											</div>
 										</div>
 									</li>
@@ -677,10 +666,11 @@
 												type="checkbox" class="liChild" value="2" name="test">
 										</div>
 										<div class="task-title">
-											<span class="task-title-sp"> 使用 LESS： 通过设置变量
-												@fa-font-path 覆盖默认的值，如 @fa-font-path: "../fonts";。这个变量定义在
-												icon.less 里。 </span> <span class="label label-sm label-warning">市场部</span>
-
+											<span class="task-title-sp">
+												三维重构中物体边界的自动识别
+											</span>
+											<span class="label label-sm label-success">14:40-15:00</span>
+											<span class="label label-sm label-danger">A307</span>
 										</div>
 										<div class="task-config">
 											<div class="am-dropdown tpl-task-list-dropdown"
@@ -701,8 +691,6 @@
 															class="am-icon-trash-o"></i> 删除
 													</a></li>
 												</ul>
-
-
 											</div>
 										</div>
 									</li>
@@ -713,9 +701,10 @@
 												type="checkbox" class="liChild" value="2" name="test">
 										</div>
 										<div class="task-title">
-											<span class="task-title-sp"> 添加 .am-btn-group-justify
-												class 让按钮组里的按钮平均分布，填满容器宽度。 </span> <span
-												class="label label-sm label-default">已废弃</span>
+											<span class="task-title-sp">
+												常用基础图像处理算法在FPGA上的实现
+											</span>
+											<span class="label label-sm label-default">已取消</span>
 
 										</div>
 										<div class="task-config">
@@ -737,8 +726,6 @@
 															class="am-icon-trash-o"></i> 删除
 													</a></li>
 												</ul>
-
-
 											</div>
 										</div>
 									</li>
@@ -750,10 +737,10 @@
 										</div>
 										<div class="task-title">
 											<span class="task-title-sp"> 按照示例组织好 HTML 结构（不加
-												data-am-dropdown 属性），然后通过 JS 来调用。 </span> <span
-												class="label label-sm label-success">技术部</span> <span
-												class="task-bell"> <i class="am-icon-bell-o"></i>
-											</span>
+												data-am-dropdown 属性），然后通过 JS 来调用。 </span>
+											<span class="label label-sm label-success">15:05-15:25</span>
+											<span class="label label-sm label-danger">A307</span>
+											<span class="task-bell"> <i class="am-icon-bell-o"></i></span>
 										</div>
 										<div class="task-config">
 											<div class="am-dropdown tpl-task-list-dropdown"
@@ -805,78 +792,102 @@
 										<div id="scroller" class="scroller">
 											<ul class="tpl-task-list tpl-task-remind">
 												<li>
-													<div class="cosB">12分钟前</div>
+													<div class="cosB">1天前</div>
 													<div class="cosA">
 														<span class="cosIco"> <i class="am-icon-bell-o"></i>
-														</span> <span> 注意：Chrome 和 Firefox 下， display:
-															inline-block; 或 display: block; 的元素才会应用旋转动画。<span
-															class="tpl-label-info"> 提取文件 <i
-																class="am-icon-share"></i>
 														</span>
+														<span>机场跑道上的垃圾检测与定位
+															<span class="tpl-label-info"> 查看报告 <i class="am-icon-share"></i>
+															</span>
 														</span>
-													</div>
-
-												</li>
-												<li>
-													<div class="cosB">36分钟前</div>
-													<div class="cosA">
-														<span class="cosIco label-danger"> <i
-															class="am-icon-bolt"></i>
-														</span> <span> FontAwesome 在绘制图标的时候不同图标宽度有差异， 添加
-															.am-icon-fw 将图标设置为固定的宽度，解决宽度不一致问题（v2.3 新增）。</span>
-													</div>
-
-												</li>
-
-												<li>
-													<div class="cosB">2小时前</div>
-													<div class="cosA">
-														<span class="cosIco label-info"> <i
-															class="am-icon-bullhorn"></i>
-														</span> <span> 使用 flexbox 实现，只兼容 IE 10+ 及其他现代浏览器。</span>
 													</div>
 
 												</li>
 												<li>
 													<div class="cosB">1天前</div>
 													<div class="cosA">
-														<span class="cosIco label-warning"> <i
-															class="am-icon-plus"></i>
-														</span> <span> 部分用户反应在过长的 Tabs 中滚动页面时会意外触发 Tab
-															切换事件，用户可以选择禁用触控操作。</span>
-													</div>
-
-												</li>
-												<li>
-													<div class="cosB">12分钟前</div>
-													<div class="cosA">
-														<span class="cosIco"> <i class="am-icon-bell-o"></i>
-														</span> <span> 注意：Chrome 和 Firefox 下， display:
-															inline-block; 或 display: block; 的元素才会应用旋转动画。<span
-															class="tpl-label-info"> 提取文件 <i
-																class="am-icon-share"></i>
-														</span>
-														</span>
-													</div>
-
-												</li>
-												<li>
-													<div class="cosB">36分钟前</div>
-													<div class="cosA">
 														<span class="cosIco label-danger"> <i
 															class="am-icon-bolt"></i>
-														</span> <span> FontAwesome 在绘制图标的时候不同图标宽度有差异， 添加
-															.am-icon-fw 将图标设置为固定的宽度，解决宽度不一致问题（v2.3 新增）。</span>
+														</span>
+														<span>
+															基于视频结构化描述的交通异常事件识别
+														</span>
 													</div>
 
 												</li>
 
 												<li>
-													<div class="cosB">2小时前</div>
+													<div class="cosB">2天前</div>
 													<div class="cosA">
 														<span class="cosIco label-info"> <i
 															class="am-icon-bullhorn"></i>
-														</span> <span> 使用 flexbox 实现，只兼容 IE 10+ 及其他现代浏览器。</span>
+														</span>
+														<span>
+															基于OpenCV的安卓图像处理软件框架
+														</span>
+													</div>
+
+												</li>
+												<li>
+													<div class="cosB">2天前</div>
+													<div class="cosA">
+														<span class="cosIco label-warning"> <i
+															class="am-icon-plus"></i>
+														</span>
+														<span>
+															远距离形状识别——神经网络的实现
+														</span>
+													</div>
+
+												</li>
+												<li>
+													<div class="cosB">2天前</div>
+													<div class="cosA">
+														<span class="cosIco"> <i class="am-icon-bell-o"></i>
+														</span>
+														<span>
+															基于BCWT图像压缩算法的联合图像篡改检测
+														<span class="tpl-label-info">查看报告<i class="am-icon-share"></i>
+														</span>
+														</span>
+													</div>
+
+												</li>
+												<li>
+													<div class="cosB">4天前</div>
+													<div class="cosA">
+														<span class="cosIco label-danger"> <i
+															class="am-icon-bolt"></i>
+														</span>
+														<span>
+															基于BCWT图像压缩算法的联合局部加密实现
+														</span>
+													</div>
+
+												</li>
+
+												<li>
+													<div class="cosB">7天前</div>
+													<div class="cosA">
+														<span class="cosIco label-info"> <i
+															class="am-icon-bullhorn"></i>
+														</span>
+														<span>
+															SM2非对称加密算法在FPGA上的实现
+														</span>
+													</div>
+
+												</li>
+												
+												<li>
+													<div class="cosB">超过7天前</div>
+													<div class="cosA">
+														<span class="cosIco label-info"> <i
+															class="am-icon-bullhorn"></i>
+														</span>
+														<span>
+															基于图像的行人与乘客的检测与识别
+														</span>
 													</div>
 
 												</li>
@@ -889,78 +900,90 @@
 										<div id="scroller" class="scroller">
 											<ul class="tpl-task-list tpl-task-remind">
 												<li>
-													<div class="cosB">12分钟前</div>
+													<div class="cosB">1个月前</div>
 													<div class="cosA">
 														<span class="cosIco"> <i class="am-icon-bell-o"></i>
-														</span> <span> 注意：Chrome 和 Firefox 下， display:
-															inline-block; 或 display: block; 的元素才会应用旋转动画。<span
-															class="tpl-label-info"> 提取文件 <i
-																class="am-icon-share"></i>
+														</span>
+														<span>
+															SM4对称加密算法在FPGA上的实现
+														<span class="tpl-label-info">查看报告<i class="am-icon-share"></i>
 														</span>
 														</span>
 													</div>
 
 												</li>
 												<li>
-													<div class="cosB">36分钟前</div>
+													<div class="cosB">1个月前</div>
 													<div class="cosA">
 														<span class="cosIco label-danger"> <i
 															class="am-icon-bolt"></i>
-														</span> <span> FontAwesome 在绘制图标的时候不同图标宽度有差异， 添加
-															.am-icon-fw 将图标设置为固定的宽度，解决宽度不一致问题（v2.3 新增）。</span>
+														</span>
+														<span>
+															标签缺陷检测技术研究
+														</span>
 													</div>
 
 												</li>
 
 												<li>
-													<div class="cosB">2小时前</div>
+													<div class="cosB">1个月前</div>
 													<div class="cosA">
 														<span class="cosIco label-info"> <i
 															class="am-icon-bullhorn"></i>
-														</span> <span> 使用 flexbox 实现，只兼容 IE 10+ 及其他现代浏览器。</span>
+														</span>
+														<span>
+															视频压缩中分区域的多QP量化技术研究
+														</span>
 													</div>
 
 												</li>
 												<li>
-													<div class="cosB">1天前</div>
+													<div class="cosB">2个月前</div>
 													<div class="cosA">
 														<span class="cosIco label-warning"> <i
 															class="am-icon-plus"></i>
-														</span> <span> 部分用户反应在过长的 Tabs 中滚动页面时会意外触发 Tab
-															切换事件，用户可以选择禁用触控操作。</span>
+														</span>
+														<span>
+															基于图片的消防门安全隐患识别
+														</span>
 													</div>
 
 												</li>
 												<li>
-													<div class="cosB">12分钟前</div>
+													<div class="cosB">2个月前</div>
 													<div class="cosA">
 														<span class="cosIco"> <i class="am-icon-bell-o"></i>
-														</span> <span> 注意：Chrome 和 Firefox 下， display:
-															inline-block; 或 display: block; 的元素才会应用旋转动画。<span
-															class="tpl-label-info"> 提取文件 <i
-																class="am-icon-share"></i>
+														</span>
+														<span>
+														通用物联网数据平台——数据采集与传输
+														<span class="tpl-label-info">查看报告<i class="am-icon-share"></i>
 														</span>
 														</span>
 													</div>
 
 												</li>
 												<li>
-													<div class="cosB">36分钟前</div>
+													<div class="cosB">3个月前</div>
 													<div class="cosA">
 														<span class="cosIco label-danger"> <i
 															class="am-icon-bolt"></i>
-														</span> <span> FontAwesome 在绘制图标的时候不同图标宽度有差异， 添加
-															.am-icon-fw 将图标设置为固定的宽度，解决宽度不一致问题（v2.3 新增）。</span>
+														</span>
+														<span>
+															通用物联网数据平台——数据存储与展示
+														</span>
 													</div>
 
 												</li>
 
 												<li>
-													<div class="cosB">2小时前</div>
+													<div class="cosB">超过3个月前</div>
 													<div class="cosA">
 														<span class="cosIco label-info"> <i
 															class="am-icon-bullhorn"></i>
-														</span> <span> 使用 flexbox 实现，只兼容 IE 10+ 及其他现代浏览器。</span>
+														</span>
+														<span>
+															通用物联网数据平台——数据综合分析
+														</span>
 													</div>
 
 												</li>
@@ -968,23 +991,17 @@
 										</div>
 									</div>
 								</div>
-
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
-
-
-
 		</div>
-
 	</div>
-	模板收集自
-	<a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
-	- More Templates
-	<a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+	From 
+	<a href="https://github.com/supercaoO/lrm" target="_blank" title="模板之家">supercaoO</a>
+	- Open Source - 
+	<a href="https://github.com/supercaoO/lrm" title="网页模板" target="_blank">https://github.com/supercaoO/lrm</a>
 
 
 	<script src="assets/js/jquery.min.js"></script>

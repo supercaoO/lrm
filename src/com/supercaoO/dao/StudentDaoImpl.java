@@ -6,9 +6,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
-import com.supercaoO.bean.Manager;
 import com.supercaoO.bean.Page;
-import com.supercaoO.bean.Project;
 import com.supercaoO.bean.Student;
 
 public class StudentDaoImpl extends HibernateDaoSupport implements StudentDao {
@@ -86,22 +84,4 @@ public class StudentDaoImpl extends HibernateDaoSupport implements StudentDao {
 		studentPage.setPages(studentList);
 		return studentPage;
 	}
-	
-	/*public void save(Student student, Project project) {
-		this.getHibernateTemplate().save(student);
-		student.getProjects().add(project);
-	}
-
-	public Student getStudentByIdAndPwd(DetachedCriteria criteria) {
-		List<Student> list = (List<Student>) this.getHibernateTemplate().findByCriteria(criteria);
-		if(list != null && list.size() == 1 )
-			return list.get(0);
-		return null;
-	}
-
-	public List<Student> query() {
-		List<Student> studentList = (List<Student>) this.getHibernateTemplate().find("from Student where studentStatus = ?", "1");
-		return studentList;
-	}*/
-
 }

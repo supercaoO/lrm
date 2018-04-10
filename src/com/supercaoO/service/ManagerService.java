@@ -8,17 +8,6 @@ import com.supercaoO.bean.Manager;
 import com.supercaoO.bean.Page;
 
 public interface ManagerService {
-
-	/*Manager login(DetachedCriteria criteria);
-
-	List<Manager> query(DetachedCriteria criteria);
-
-	Manager getManagerById(String managerId);
-
-	Integer save(Manager manager);
-
-	int reqwd(DetachedCriteria criteria, String newManagerPassword);*/
-	
 	Manager login(DetachedCriteria criteria);
 	
 	List<Manager> list();

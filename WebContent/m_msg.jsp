@@ -179,25 +179,13 @@
 	</header>
 
 
-
-
-
-
-
 	<div class="tpl-page-container tpl-page-header-fixed">
-
-
 		<div class="tpl-left-nav tpl-left-nav-hover">
 			<br>
 			<div class="tpl-left-nav-list">
 				<ul class="tpl-left-nav-menu">
 					<li class="tpl-left-nav-item"><a href="m_index.jsp"
 						class="nav-link active"> <i class="am-icon-home"></i> <span>首页</span>
-					</a></li>
-					<li class="tpl-left-nav-item"><a href="chart.html"
-						class="nav-link tpl-left-nav-link-list"> <i
-							class="am-icon-bar-chart"></i> <span>数据表</span> <i
-							class="tpl-left-nav-content tpl-badge-danger"> 12 </i>
 					</a></li>
 
 					<li class="tpl-left-nav-item"><a href="javascript:;"
@@ -248,10 +236,6 @@
 			</div>
 		</div>
 
-
-
-
-
 		<div class="tpl-content-wrapper">
 			<ol class="am-breadcrumb">
 				<li><a href="#" class="am-icon-home">首页</a></li>
@@ -274,17 +258,15 @@
 						<span class="label label-danger">所管理项目</span>
 						<br>
 						<s:iterator value="projects">
-						<p>
 						<a href="${ pageContext.request.contextPath }/project_query.action?projectId=${ projectId }">
 							<s:property value="projectName" />&nbsp;&nbsp;
 						</a>
-							</p>
                     	</s:iterator>
 					</p>
 				</div>
 			</div>
 		</div>
-
+		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/amazeui.min.js"></script>
