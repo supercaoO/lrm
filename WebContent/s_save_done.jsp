@@ -267,7 +267,7 @@
 
 
                         <div class="am-u-sm-12 am-u-md-9">
-                            <form class="am-form am-form-horizontal" action="${ pageContext.request.contextPath }/manager_query.action" method="post">
+                            <form class="am-form am-form-horizontal" action="${ pageContext.request.contextPath }/project_list.action?operation=studentSave" method="post">
                                 <div class="am-form-group">
                                     <div class="am-u-sm-9 am-u-sm-push-3">
                                         <button type="submit" class="am-btn am-btn-primary">继续添加</button>
