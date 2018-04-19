@@ -59,6 +59,7 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 		this.headImgContentType = headImgContentType;
 	}
 
+	/// Manager Login
 	public String login() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
 		criteria.add(Restrictions.eq("managerId", manager.getManagerId()));
@@ -72,6 +73,7 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 		return "managerLogin";
 	}
 	
+	/// Get all Managers
 	public String list() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
 		criteria.add(Restrictions.eq("managerStatus", "1"));
@@ -81,6 +83,7 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 		return ServletActionContext.getRequest().getParameter("operation");
 	}
 	
+	/// Save new Manager
 	public String save() {
 		manager.setManagerPassword(MD5.encrypt("123456"));
 		manager.setManagerStatus("1");
@@ -89,7 +92,8 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 		ActionContext.getContext().getValueStack().push(managerId.toString());
 		return "managerSaveDone";
 	}
-	
+
+	/// Change the Manager's password
 	public String repwd() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
 		criteria.add(Restrictions.eq("managerId", manager.getManagerId()));
@@ -102,6 +106,7 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 		return "managerRepwd";
 	}
 	
+	/// Get the Manager of the appointed project and other Managers
 	public String listWithProjectId() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class).add(Restrictions.eq("managerStatus", "1"));
 		List<Manager> managerList = managerService.list(criteria);
@@ -124,6 +129,7 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 		return "projectUpdate";
 	}
 	
+	/// Query a Manager
 	public String query() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
 		String managerId = ServletActionContext.getRequest().getParameter("managerId");
@@ -134,11 +140,13 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 		return "managerMsg";
 	}
 	
+	/// Manager Logout
 	public String logout() {
 		ServletActionContext.getRequest().getSession().removeAttribute("manager");
 		return "managerLogin";
 	}
 	
+	/// Query Managers by page
 	public String queryByPage() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
 		criteria.add(Restrictions.eq("managerStatus", "1"));
@@ -153,6 +161,7 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 		return ServletActionContext.getRequest().getParameter("operation");
 	}
 	
+	/// Delete Manager
 	public String delete() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
 		String managerId = ServletActionContext.getRequest().getParameter("managerId");
@@ -167,6 +176,7 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 		return "managerList";
 	}
 	
+	/// Save the head image of Manager
 	public String headImgSave() throws IOException {
 		Manager managerLogining = (Manager) ServletActionContext.getRequest().getSession().getAttribute("manager");
 		String headImgPath = managerLogining.getHeadImgPath();

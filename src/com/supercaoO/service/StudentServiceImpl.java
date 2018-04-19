@@ -23,7 +23,12 @@ public class StudentServiceImpl implements StudentService {
 		this.projectDao = projectDao;
 	}
 
-
+	/**
+	 * Save new Student
+	 * @param student new Student
+	 * @param criteria query criteria for Project belonged
+	 * @return the ID of new Student
+	 */
 	public int save(Student student, DetachedCriteria criteria) {
 		List<Project> projectList = projectDao.query(criteria);
 		Project project = null;
@@ -35,16 +40,31 @@ public class StudentServiceImpl implements StudentService {
 		
 	}
 
+	/**
+	 * Get Students by criteria
+	 * @param criteria query criteria
+	 * @return the list of Student queried
+	 */
 	public List<Student> list(DetachedCriteria criteria) {
 		return studentDao.query(criteria);
 	}
 
-
+	/**
+	 * Query Students by page and criteria
+	 * @param pageNumber the page number
+	 * @param pageSize the size of one page
+	 * @param criteria query criteria
+	 * @return query result
+	 */
 	public Page<Student> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria) {
 		return studentDao.queryByPage(pageNumber, pageSize, criteria);
 	}
 
-
+	/**
+	 * Delete the appointed Student
+	 * @param criteria the appointed Student
+	 * @return if delete successfully, return 1, otherwise return -1
+	 */
 	public int delete(DetachedCriteria criteria) {
 		List<Student> studentList = studentDao.query(criteria);
 		Student student = null;

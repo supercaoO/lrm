@@ -43,10 +43,12 @@ public class StudentAction extends ActionSupport implements ModelDriven<Student>
 		this.pageSize = pageSize;
 	}
 	
+	/// Student Login
 	public String login() {
 		return "blockUp";
 	}
 	
+	/// Save new Student
 	public String save() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
 		Integer projectId = Integer.valueOf(ServletActionContext.getRequest().getParameter("projectId"));
@@ -57,6 +59,7 @@ public class StudentAction extends ActionSupport implements ModelDriven<Student>
 		return "studentSaveDone";
 	}
 	
+	/// Get all Students
 	public String list() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Student.class);
 		criteria.add(Restrictions.eq("studentStatus", "1"));
@@ -66,6 +69,7 @@ public class StudentAction extends ActionSupport implements ModelDriven<Student>
 		return ServletActionContext.getRequest().getParameter("operation");
 	}
 	
+	/// Query Students by page
 	public String queryByPage() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Student.class);
 		criteria.add(Restrictions.eq("studentStatus", "1"));
@@ -80,6 +84,7 @@ public class StudentAction extends ActionSupport implements ModelDriven<Student>
 		return ServletActionContext.getRequest().getParameter("operation");
 	}
 	
+	/// Delete the appointed Student
 	public String delete() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Student.class);
 		String studentId = ServletActionContext.getRequest().getParameter("studentId");

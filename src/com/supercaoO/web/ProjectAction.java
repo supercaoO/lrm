@@ -51,6 +51,7 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 		this.pageSize = pageSize;
 	}
 	
+	/// Save new Project
 	public String save() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
 		Integer managerId = Integer.valueOf(ServletActionContext.getRequest().getParameter("managerId"));
@@ -61,6 +62,7 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 		return "projectSaveDone";
 	}
 	
+	/// Get all Projects
 	public String list() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
 		criteria.add(Restrictions.eq("projectStatus", "1"));
@@ -70,6 +72,7 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 		return ServletActionContext.getRequest().getParameter("operation");
 	}
 	
+	/// Get all students who belong to the appointed project
 	public String queryStudents() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
 		criteria.add(Restrictions.eq("projectStatus", "1"));
@@ -84,6 +87,7 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 		return "studentList";
 	}
 	
+	/// Update the appointed Project
 	public String update() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Manager.class);
 		Integer managerId = Integer.valueOf(ServletActionContext.getRequest().getParameter("managerId"));
@@ -95,6 +99,7 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 		return "projectList";
 	}
 	
+	/// Delete the appointed Project
 	public String delete() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
 		String projectId = ServletActionContext.getRequest().getParameter("projectId");
@@ -109,6 +114,7 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 		return "projectList";
 	}
 	
+	/// Query a Project
 	public String query() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
 		String projectId = ServletActionContext.getRequest().getParameter("projectId");
@@ -119,6 +125,7 @@ public class ProjectAction extends ActionSupport implements ModelDriven<Project>
 		return "projectMsg";
 	}
 	
+	/// Query Projects by page
 	public String queryByPage() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
 		criteria.add(Restrictions.eq("projectStatus", "1"));

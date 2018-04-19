@@ -3,13 +3,25 @@ package com.supercaoO.bean;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Project Bean
+ * @author caoO
+ *
+ */
 public class Project {
+	/// the ID
 	private Integer projectId;
+	/// the name
 	private String projectName;
+	/// the introduction
 	private String projectIntro;
+	/// the status
 	private String projectStatus;
+	/// the date last committed
 	private String lastCommitDate;
+	/// the manager belonged
 	private Manager manager;
+	/// the participating students
 	private Set<Student> students = new HashSet<Student>();
 	
 	public Integer getProjectId() {

@@ -24,6 +24,12 @@ public class ProjectServiceImpl implements ProjectService {
 		this.managerDao = managerDao;
 	}
 	
+	/**
+	 * Save new Project
+	 * @param project new Project
+	 * @param criteria query criteria for Manager belonged
+	 * @return the ID of new Project
+	 */
 	public int save(Project project, DetachedCriteria criteria) {
 		List<Manager> managerList = managerDao.query(criteria);
 		Manager manager = null;
@@ -34,10 +40,21 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectDao.save(project);
 	}
 
+	/**
+	 * Get Projects by criteria
+	 * @param criteria query criteria
+	 * @return the list of Projects queried
+	 */
 	public List<Project> list(DetachedCriteria criteria) {
 		return projectDao.query(criteria);
 	}
 
+	/**
+	 * Update the appointed Project
+	 * @param project the appointed Project
+	 * @param criteria query criteria for Manager belonged
+	 * @return if update successfully, return 1, otherwise return -1
+	 */
 	public int update(Project project, DetachedCriteria criteria) {
 		List<Manager> managerList = managerDao.query(criteria);
 		List<Project> projectList = projectDao.query(DetachedCriteria.forClass(Project.class).add(Restrictions.eq("projectId", project.getProjectId())));
@@ -55,6 +72,11 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectDao.update(exitingProject);
 	}
 
+	/**
+	 * Delete Project by criteria
+	 * @param criteria delete criteria
+	 * @return if delete successfully, return 1, otherwise return -1
+	 */
 	public int delete(DetachedCriteria criteria) {
 		List<Project> projectList = projectDao.query(criteria);
 		Project project = null;
@@ -66,6 +88,11 @@ public class ProjectServiceImpl implements ProjectService {
 		return -1;
 	}
 
+	/**
+	 * Query Project by criteria
+	 * @param criteria query criteria
+	 * @return Project queried
+	 */
 	public Project query(DetachedCriteria criteria) {
 		List<Project> projectList = projectDao.query(criteria);
 		if(projectList != null && projectList.size() > 0) {
@@ -74,6 +101,13 @@ public class ProjectServiceImpl implements ProjectService {
 		return null;
 	}
 
+	/**
+	 * Query Projects by page and criteria
+	 * @param pageNumber the page number
+	 * @param pageSize the size of page
+	 * @param criteria query criteria
+	 * @return query result
+	 */
 	public Page<Project> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria) {
 		return projectDao.queryByPage(pageNumber, pageSize, criteria);
 	}

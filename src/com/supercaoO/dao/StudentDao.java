@@ -37,6 +37,13 @@ public interface StudentDao {
 	 */
 	List<Student> query(DetachedCriteria criteria);
 
+	/**
+	 * To query Student by page and criteria
+	 * @param pageNumber the page number
+	 * @param pageSize the size of one page
+	 * @param criteria query criteria
+	 * @return query result
+	 */
 	Page<Student> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria);
 
 }

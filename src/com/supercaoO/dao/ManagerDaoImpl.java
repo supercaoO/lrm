@@ -62,7 +62,7 @@ public class ManagerDaoImpl extends HibernateDaoSupport implements ManagerDao {
 	 * To query Manager by Page and criteria
 	 * @return query result
 	 * @param pageNumber the page number
-	 * @param pageSize the size of page
+	 * @param pageSize the size of one page
 	 * @param criteria query criteria
 	 */
 	public Page<Manager> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria) {

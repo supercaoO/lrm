@@ -61,7 +61,7 @@ public class ProjectDaoImpl extends HibernateDaoSupport implements ProjectDao {
 	 * To query Project by Page and criteria
 	 * @return query result
 	 * @param pageNumber the page number
-	 * @param pageSize the size of page
+	 * @param pageSize the size of one page
 	 * @param criteria query criteria
 	 */
 	public Page<Project> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria) {

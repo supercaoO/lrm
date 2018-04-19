@@ -3,12 +3,23 @@ package com.supercaoO.bean;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Manager Bean
+ * @author caoO
+ *
+ */
 public class Manager {
+	/// the ID
 	private Integer managerId;
+	/// the name
 	private String managerName;
+	/// the password
 	private String managerPassword;
+	/// the status
 	private String managerStatus;
+	/// the file path of head image
 	private String headImgPath;
+	/// the projects managed
 	private Set<Project> projects = new HashSet<Project>();
 	
 	public Integer getManagerId() {

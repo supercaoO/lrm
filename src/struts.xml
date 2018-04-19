@@ -13,7 +13,7 @@
 		<global-results>
 			<result name="login" type="redirect">login.html</result>
 		</global-results>
-	
+
 		<action name="manager_*" class="managerAction" method="{1}">
 			<interceptor-ref name="LoginInterceptor">
 				<param name="excludeMethods">login</param>

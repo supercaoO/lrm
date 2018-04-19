@@ -4,7 +4,17 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Class for Encrypting
+ * @author caoO
+ *
+ */
 public class MD5 {
+	/**
+	 * Encrypt the appointed string by MD5
+	 * @param plainText original string
+	 * @return encrypted string
+	 */
 	public static String encrypt(String plainText) {
 		byte[] secretBytes = null;
 		try {

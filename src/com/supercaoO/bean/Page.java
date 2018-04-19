@@ -13,6 +13,7 @@ public class Page <T> {
 	private int pageSize;
 	//数据
 	private List<T> pages;
+	
 	public int getPageNumber() {
 		return pageNumber;
 	}

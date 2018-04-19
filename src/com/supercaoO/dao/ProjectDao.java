@@ -37,5 +37,12 @@ public interface ProjectDao {
 	 */
 	List<Project> query(DetachedCriteria criteria);
 
+	/**
+	 * To query Project by page and criteria
+	 * @param pageNumber the page number
+	 * @param pageSize the size of one page
+	 * @param criteria query criteria
+	 * @return query result
+	 */
 	Page<Project> queryByPage(Integer pageNumber, Integer pageSize, DetachedCriteria criteria);
 }

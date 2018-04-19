@@ -6,6 +6,11 @@ import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.MethodFilterInterceptor;
 import com.supercaoO.bean.Manager;
 
+/**
+ * Login interceptor
+ * @author caoO
+ *
+ */
 public class LoginInterceptor extends MethodFilterInterceptor {
 	private static final long serialVersionUID = 3717175811212995580L;
 
@@ -16,5 +21,4 @@ public class LoginInterceptor extends MethodFilterInterceptor {
 		}
 		return invocation.invoke();
 	}
-	
 }
